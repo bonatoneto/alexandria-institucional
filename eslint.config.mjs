@@ -1,18 +1,40 @@
-import { defineConfig, globalIgnores } from "eslint/config";
 import nextVitals from "eslint-config-next/core-web-vitals";
 import nextTs from "eslint-config-next/typescript";
+import importHelpersPlugin from "eslint-plugin-import-helpers";
+import prettierPlugin from "eslint-plugin-prettier";
 
-const eslintConfig = defineConfig([
+const eslintConfig = [
   ...nextVitals,
   ...nextTs,
-  // Override default ignores of eslint-config-next.
-  globalIgnores([
-    // Default ignores of eslint-config-next:
-    ".next/**",
-    "out/**",
-    "build/**",
-    "next-env.d.ts",
-  ]),
-]);
+  {
+    plugins: {
+      prettier: prettierPlugin,
+      "import-helpers": importHelpersPlugin,
+    },
+    rules: {
+      semi: ["error", "always"],
+      quotes: ["error", "double"],
+      "react-hooks/rules-of-hooks": "error",
+      "react-hooks/exhaustive-deps": "warn",
+      "react/react-in-jsx-scope": "off",
+      "prettier/prettier": "error",
+      "import-helpers/order-imports": [
+        "warn",
+        {
+          newlinesBetween: "always",
+          groups: [
+            ["/^react/", "/^next/", "/@next/"],
+            "/components/",
+            "/^module/",
+            "/^@shared/",
+            "/absolute/",
+            ["parent", "sibling", "index"],
+          ],
+          alphabetize: { order: "asc", ignoreCase: true },
+        },
+      ],
+    },
+  },
+];
 
 export default eslintConfig;

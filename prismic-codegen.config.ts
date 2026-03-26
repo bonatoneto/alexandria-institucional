@@ -1,0 +1,9 @@
+import type { Config } from "prismic-ts-codegen";
+
+const config: Config = {
+  repositoryName: "alexandria-institucional",
+  output: "./src/prismic-types.generated.ts",
+  models: ["./customtypes/**/index.json", "./src/slices/**/model.json"],
+};
+
+export default config;
