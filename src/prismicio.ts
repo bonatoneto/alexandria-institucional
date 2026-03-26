@@ -1,4 +1,4 @@
-import type { AllDocumentTypes } from "./prismic-types.generated";
+import type { AllDocumentTypes } from "../prismicio-types";
 import sm from "../slicemachine.config.json";
 
 import * as prismic from "@prismicio/client";
@@ -15,7 +15,6 @@ export const repositoryName =
  */
 const routes: prismic.ClientConfig["routes"] = [
   { type: "homepage", path: "/" },
-  { type: "page", path: "/:uid" },
 ];
 
 /**
@@ -34,7 +33,7 @@ export function createClient(
     ...config,
   });
 
-  prismicNext.enableAutoPreviews({ client, config });
+  prismicNext.enableAutoPreviews({ client });
 
   return client;
 }
