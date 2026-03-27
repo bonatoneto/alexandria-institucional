@@ -11,6 +11,15 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "zoom_images": {
+              "type": "SharedSlice"
+            },
+            "big_text_section": {
+              "type": "SharedSlice"
+            },
+            "feature": {
+              "type": "SharedSlice"
+            },
             "hero": {
               "type": "SharedSlice"
             }

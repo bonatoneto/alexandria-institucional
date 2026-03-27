@@ -1,0 +1,54 @@
+{
+  "id": "feature",
+  "type": "SharedSlice",
+  "name": "Feature",
+  "description": "Feature",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "image": {
+          "type": "Image",
+          "config": {
+            "label": "Imagem",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Ttulo",
+            "placeholder": "Titulo da secao ",
+            "allowTargetBlank": true,
+            "multi": "heading2,heading3"
+          }
+        },
+        "description": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Descrição",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "o-list-item,list-item,paragraph,heading6,heading5,heading4,strong"
+          }
+        },
+        "background_animation": {
+          "type": "Link",
+          "config": {
+            "label": "Animaçao de fundo da seçao",
+            "placeholder": "URL da midia de background",
+            "select": "media",
+            "allowText": true
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

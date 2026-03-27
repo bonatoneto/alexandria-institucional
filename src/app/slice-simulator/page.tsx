@@ -1,5 +1,4 @@
 import { components } from "@/slices";
-
 import {
   SliceSimulator,
   SliceSimulatorParams,

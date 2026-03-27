@@ -20,6 +20,13 @@
           "label": "Menu de navegaçao",
           "repeat": true,
           "fields": {
+            "anchor_name": {
+              "type": "Text",
+              "config": {
+                "label": "Nome da âncora",
+                "placeholder": "Exemplo: O que nos move"
+              }
+            },
             "menu_item": {
               "type": "Text",
               "config": {

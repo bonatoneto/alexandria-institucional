@@ -74,6 +74,16 @@ type ContentRelationshipFieldWithData<
  */
 export interface HeaderDocumentDataMenuNavigationItem {
   /**
+   * Nome da âncora field in *Header → Menu de navegaçao*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Exemplo: O que nos move
+   * - **API ID Path**: header.menu_navigation[].anchor_name
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  anchor_name: prismic.KeyTextField;
+
+  /**
    * Ancora de seçao field in *Header → Menu de navegaçao*
    *
    * - **Field Type**: Text
@@ -129,7 +139,11 @@ export type HeaderDocument<Lang extends string = string> =
     Lang
   >;
 
-type HomepageDocumentDataSlicesSlice = HeroSlice;
+type HomepageDocumentDataSlicesSlice =
+  | ZoomImagesSlice
+  | BigTextSectionSlice
+  | FeatureSlice
+  | HeroSlice;
 
 /**
  * Content for Homepage documents
@@ -195,6 +209,136 @@ export type HomepageDocument<Lang extends string = string> =
   >;
 
 export type AllDocumentTypes = HeaderDocument | HomepageDocument;
+
+/**
+ * Primary content in *BigTextSection → Default → Primary*
+ */
+export interface BigTextSectionSliceDefaultPrimary {
+  /**
+   * Imagem de fundo field in *BigTextSection → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: big_text_section.default.primary.background_image
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  background_image: prismic.ImageField<never>;
+
+  /**
+   * Text field in *BigTextSection → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Ex: Simplificamos o que antes era complicado.
+   * - **API ID Path**: big_text_section.default.primary.text
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  text: prismic.RichTextField;
+}
+
+/**
+ * Default variation for BigTextSection Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type BigTextSectionSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<BigTextSectionSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *BigTextSection*
+ */
+type BigTextSectionSliceVariation = BigTextSectionSliceDefault;
+
+/**
+ * BigTextSection Shared Slice
+ *
+ * - **API ID**: `big_text_section`
+ * - **Description**: BigTextSection
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type BigTextSectionSlice = prismic.SharedSlice<
+  "big_text_section",
+  BigTextSectionSliceVariation
+>;
+
+/**
+ * Primary content in *Feature → Default → Primary*
+ */
+export interface FeatureSliceDefaultPrimary {
+  /**
+   * Imagem field in *Feature → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: feature.default.primary.image
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * Ttulo field in *Feature → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Titulo da secao
+   * - **API ID Path**: feature.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Descrição field in *Feature → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: feature.default.primary.description
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  description: prismic.RichTextField;
+
+  /**
+   * Animaçao de fundo da seçao field in *Feature → Default → Primary*
+   *
+   * - **Field Type**: Link to Media
+   * - **Placeholder**: URL da midia de background
+   * - **API ID Path**: feature.default.primary.background_animation
+   * - **Documentation**: https://prismic.io/docs/fields/link-to-media
+   */
+  background_animation: prismic.LinkToMediaField<prismic.FieldState, never>;
+}
+
+/**
+ * Default variation for Feature Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type FeatureSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<FeatureSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Feature*
+ */
+type FeatureSliceVariation = FeatureSliceDefault;
+
+/**
+ * Feature Shared Slice
+ *
+ * - **API ID**: `feature`
+ * - **Description**: Feature
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type FeatureSlice = prismic.SharedSlice<
+  "feature",
+  FeatureSliceVariation
+>;
 
 /**
  * Primary content in *Hero → Default → Primary*
@@ -264,6 +408,106 @@ type HeroSliceVariation = HeroSliceDefault;
  */
 export type HeroSlice = prismic.SharedSlice<"hero", HeroSliceVariation>;
 
+/**
+ * Item in *ZoomImages → Default → Primary → Imagens*
+ */
+export interface ZoomImagesSliceDefaultPrimaryImagesItem {
+  /**
+   * Imagem field in *ZoomImages → Default → Primary → Imagens*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: zoom_images.default.primary.images[].image
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * Titulo da Imagem field in *ZoomImages → Default → Primary → Imagens*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Ex: Nosso Proposito
+   * - **API ID Path**: zoom_images.default.primary.images[].image_title
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  image_title: prismic.RichTextField;
+
+  /**
+   * Descriçao da imagem field in *ZoomImages → Default → Primary → Imagens*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: zoom_images.default.primary.images[].image_description
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  image_description: prismic.RichTextField;
+}
+
+/**
+ * Primary content in *ZoomImages → Default → Primary*
+ */
+export interface ZoomImagesSliceDefaultPrimary {
+  /**
+   * Titulo field in *ZoomImages → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Titulo da seçao
+   * - **API ID Path**: zoom_images.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Texto field in *ZoomImages → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Texto descritivo da seçao
+   * - **API ID Path**: zoom_images.default.primary.text
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  text: prismic.RichTextField;
+
+  /**
+   * Imagens field in *ZoomImages → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: zoom_images.default.primary.images[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  images: prismic.GroupField<Simplify<ZoomImagesSliceDefaultPrimaryImagesItem>>;
+}
+
+/**
+ * Default variation for ZoomImages Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type ZoomImagesSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<ZoomImagesSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *ZoomImages*
+ */
+type ZoomImagesSliceVariation = ZoomImagesSliceDefault;
+
+/**
+ * ZoomImages Shared Slice
+ *
+ * - **API ID**: `zoom_images`
+ * - **Description**: ZoomImages
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type ZoomImagesSlice = prismic.SharedSlice<
+  "zoom_images",
+  ZoomImagesSliceVariation
+>;
+
 declare module "@prismicio/client" {
   interface CreateClient {
     (
@@ -292,10 +536,23 @@ declare module "@prismicio/client" {
       HomepageDocumentData,
       HomepageDocumentDataSlicesSlice,
       AllDocumentTypes,
+      BigTextSectionSlice,
+      BigTextSectionSliceDefaultPrimary,
+      BigTextSectionSliceVariation,
+      BigTextSectionSliceDefault,
+      FeatureSlice,
+      FeatureSliceDefaultPrimary,
+      FeatureSliceVariation,
+      FeatureSliceDefault,
       HeroSlice,
       HeroSliceDefaultPrimary,
       HeroSliceVariation,
       HeroSliceDefault,
+      ZoomImagesSlice,
+      ZoomImagesSliceDefaultPrimaryImagesItem,
+      ZoomImagesSliceDefaultPrimary,
+      ZoomImagesSliceVariation,
+      ZoomImagesSliceDefault,
     };
   }
 }

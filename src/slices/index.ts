@@ -3,5 +3,8 @@
 import dynamic from "next/dynamic";
 
 export const components = {
+  big_text_section: dynamic(() => import("./BigTextSection")),
+  feature: dynamic(() => import("./Feature")),
   hero: dynamic(() => import("./Hero")),
+  zoom_images: dynamic(() => import("./ZoomImages")),
 };
