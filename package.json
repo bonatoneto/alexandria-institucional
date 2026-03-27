@@ -2,6 +2,10 @@
   "name": "alexandria-institucional",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": "22.x",
+    "pnpm": "10.x"
+  },
   "scripts": {
     "dev": "next dev --webpack",
     "dev:turbo": "next dev",
@@ -12,9 +16,9 @@
     "generate-types": "prismic-ts-codegen"
   },
   "dependencies": {
-    "@prismicio/client": "^7.21.6",
-    "@prismicio/next": "^2.2.2",
-    "@prismicio/react": "^3.4.0",
+    "@prismicio/client": "7.21.6",
+    "@prismicio/next": "2.2.2",
+    "@prismicio/react": "3.4.0",
     "clsx": "^2.1.1",
     "motion": "^12.38.0",
     "next": "16.2.1",
@@ -25,8 +29,8 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.3.5",
-    "@slicemachine/adapter-next": "^0.3.95",
-    "@slicemachine/init": "^2.10.51",
+    "@slicemachine/adapter-next": "0.3.95",
+    "@slicemachine/init": "2.10.51",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
@@ -43,8 +47,8 @@
     "husky": "^9.1.7",
     "lint-staged": "^16.4.0",
     "prettier": "^3.8.1",
-    "prismic-ts-codegen": "^0.1.28",
-    "slice-machine-ui": "^2.21.1",
+    "prismic-ts-codegen": "0.1.28",
+    "slice-machine-ui": "2.21.1",
     "tailwindcss": "^4",
     "typescript": "^5"
   }

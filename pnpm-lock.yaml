@@ -9,13 +9,13 @@ importers:
   .:
     dependencies:
       '@prismicio/client':
-        specifier: ^7.21.6
+        specifier: 7.21.6
         version: 7.21.6
       '@prismicio/next':
-        specifier: ^2.2.2
+        specifier: 2.2.2
         version: 2.2.2(@prismicio/client@7.21.6)(next@16.2.1(@babel/core@7.29.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4))(react@19.2.4)
       '@prismicio/react':
-        specifier: ^3.4.0
+        specifier: 3.4.0
         version: 3.4.0(@prismicio/client@7.21.6)(react@19.2.4)
       clsx:
         specifier: ^2.1.1
@@ -43,10 +43,10 @@ importers:
         specifier: ^3.3.5
         version: 3.3.5
       '@slicemachine/adapter-next':
-        specifier: ^0.3.95
+        specifier: 0.3.95
         version: 0.3.95(next@16.2.1(@babel/core@7.29.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4))(react@19.2.4)
       '@slicemachine/init':
-        specifier: ^2.10.51
+        specifier: 2.10.51
         version: 2.10.51(zod@4.3.6)
       '@tailwindcss/postcss':
         specifier: ^4
@@ -97,10 +97,10 @@ importers:
         specifier: ^3.8.1
         version: 3.8.1
       prismic-ts-codegen:
-        specifier: ^0.1.28
+        specifier: 0.1.28
         version: 0.1.28(@prismicio/client@7.21.6)
       slice-machine-ui:
-        specifier: ^2.21.1
+        specifier: 2.21.1
         version: 2.21.1(zod@4.3.6)
       tailwindcss:
         specifier: ^4

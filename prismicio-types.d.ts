@@ -69,6 +69,66 @@ type ContentRelationshipFieldWithData<
   >;
 }[Exclude<TCustomType[number], string>["id"]];
 
+/**
+ * Item in *Header → Menu de navegaçao*
+ */
+export interface HeaderDocumentDataMenuNavigationItem {
+  /**
+   * Ancora de seçao field in *Header → Menu de navegaçao*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Exemplo: #o-que-nos-move
+   * - **API ID Path**: header.menu_navigation[].menu_item
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  menu_item: prismic.KeyTextField;
+}
+
+/**
+ * Content for Header documents
+ */
+interface HeaderDocumentData {
+  /**
+   * Logo  field in *Header*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: header.logo
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  logo: prismic.ImageField<never>;
+
+  /**
+   * Menu de navegaçao field in *Header*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: header.menu_navigation[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  menu_navigation: prismic.GroupField<
+    Simplify<HeaderDocumentDataMenuNavigationItem>
+  >;
+}
+
+/**
+ * Header document from Prismic
+ *
+ * - **API ID**: `header`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/content-modeling
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type HeaderDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<HeaderDocumentData>,
+    "header",
+    Lang
+  >;
+
 type HomepageDocumentDataSlicesSlice = HeroSlice;
 
 /**
@@ -134,7 +194,7 @@ export type HomepageDocument<Lang extends string = string> =
     Lang
   >;
 
-export type AllDocumentTypes = HomepageDocument;
+export type AllDocumentTypes = HeaderDocument | HomepageDocument;
 
 /**
  * Primary content in *Hero → Default → Primary*
@@ -225,6 +285,9 @@ declare module "@prismicio/client" {
 
   namespace Content {
     export type {
+      HeaderDocument,
+      HeaderDocumentData,
+      HeaderDocumentDataMenuNavigationItem,
       HomepageDocument,
       HomepageDocumentData,
       HomepageDocumentDataSlicesSlice,
