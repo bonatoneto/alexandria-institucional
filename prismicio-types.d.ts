@@ -140,6 +140,10 @@ export type HeaderDocument<Lang extends string = string> =
   >;
 
 type HomepageDocumentDataSlicesSlice =
+  | CarouselSectionSlice
+  | MockupSectionSlice
+  | VideoSectionSlice
+  | CtaSectionSlice
   | ZoomImagesSlice
   | BigTextSectionSlice
   | FeatureSlice
@@ -263,6 +267,193 @@ type BigTextSectionSliceVariation = BigTextSectionSliceDefault;
 export type BigTextSectionSlice = prismic.SharedSlice<
   "big_text_section",
   BigTextSectionSliceVariation
+>;
+
+/**
+ * Item in *CarouselSection → Default → Primary → Carrossel*
+ */
+export interface CarouselSectionSliceDefaultPrimaryCarouselItem {
+  /**
+   * Imagem field in *CarouselSection → Default → Primary → Carrossel*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: carousel_section.default.primary.carousel[].image
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * Titulo da imagem field in *CarouselSection → Default → Primary → Carrossel*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Ex: Marcelino Eilert
+   * - **API ID Path**: carousel_section.default.primary.carousel[].image_title
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  image_title: prismic.RichTextField;
+
+  /**
+   * Descrição da imagem field in *CarouselSection → Default → Primary → Carrossel*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Ex: CTO
+   * - **API ID Path**: carousel_section.default.primary.carousel[].image_description
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  image_description: prismic.RichTextField;
+}
+
+/**
+ * Primary content in *CarouselSection → Default → Primary*
+ */
+export interface CarouselSectionSliceDefaultPrimary {
+  /**
+   * Titulo da seçao field in *CarouselSection → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: carousel_section.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Descrição da seção field in *CarouselSection → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: carousel_section.default.primary.description
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  description: prismic.RichTextField;
+
+  /**
+   * Imagem de background field in *CarouselSection → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: carousel_section.default.primary.backgorund_image
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  backgorund_image: prismic.ImageField<never>;
+
+  /**
+   * Background animado field in *CarouselSection → Default → Primary*
+   *
+   * - **Field Type**: Link to Media
+   * - **Placeholder**: *None*
+   * - **API ID Path**: carousel_section.default.primary.background_animated
+   * - **Documentation**: https://prismic.io/docs/fields/link-to-media
+   */
+  background_animated: prismic.LinkToMediaField<prismic.FieldState, never>;
+
+  /**
+   * Carrossel field in *CarouselSection → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: carousel_section.default.primary.carousel[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  carousel: prismic.GroupField<
+    Simplify<CarouselSectionSliceDefaultPrimaryCarouselItem>
+  >;
+}
+
+/**
+ * Default variation for CarouselSection Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type CarouselSectionSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<CarouselSectionSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *CarouselSection*
+ */
+type CarouselSectionSliceVariation = CarouselSectionSliceDefault;
+
+/**
+ * CarouselSection Shared Slice
+ *
+ * - **API ID**: `carousel_section`
+ * - **Description**: CarouselSection
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type CarouselSectionSlice = prismic.SharedSlice<
+  "carousel_section",
+  CarouselSectionSliceVariation
+>;
+
+/**
+ * Primary content in *CtaSection → Default → Primary*
+ */
+export interface CtaSectionSliceDefaultPrimary {
+  /**
+   * Titulo field in *CtaSection → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Ex: Conheça a Lex
+   * - **API ID Path**: cta_section.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Texto field in *CtaSection → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Texto descritico da seçao
+   * - **API ID Path**: cta_section.default.primary.text
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  text: prismic.RichTextField;
+
+  /**
+   * Imagem de background field in *CtaSection → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cta_section.default.primary.background_image
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  background_image: prismic.ImageField<never>;
+}
+
+/**
+ * Default variation for CtaSection Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type CtaSectionSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<CtaSectionSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *CtaSection*
+ */
+type CtaSectionSliceVariation = CtaSectionSliceDefault;
+
+/**
+ * CtaSection Shared Slice
+ *
+ * - **API ID**: `cta_section`
+ * - **Description**: CtaSection
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type CtaSectionSlice = prismic.SharedSlice<
+  "cta_section",
+  CtaSectionSliceVariation
 >;
 
 /**
@@ -409,6 +600,156 @@ type HeroSliceVariation = HeroSliceDefault;
 export type HeroSlice = prismic.SharedSlice<"hero", HeroSliceVariation>;
 
 /**
+ * Primary content in *MockupSection → Default → Primary*
+ */
+export interface MockupSectionSliceDefaultPrimary {
+  /**
+   * Titulo da seçao field in *MockupSection → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Ex: Por que a Alexandria?
+   * - **API ID Path**: mockup_section.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Subtitulo da seçao field in *MockupSection → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Ex: Infraestrutura própria
+   * - **API ID Path**: mockup_section.default.primary.subtitle
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  subtitle: prismic.RichTextField;
+
+  /**
+   * Texto descritivo da seçao field in *MockupSection → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: mockup_section.default.primary.text
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  text: prismic.RichTextField;
+
+  /**
+   * Imagem do mockup primária field in *MockupSection → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: mockup_section.default.primary.mockup_image_primary
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  mockup_image_primary: prismic.ImageField<never>;
+
+  /**
+   * Imagem do mockup secondária field in *MockupSection → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: mockup_section.default.primary.mockup_image_secondary
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  mockup_image_secondary: prismic.ImageField<never>;
+}
+
+/**
+ * Default variation for MockupSection Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type MockupSectionSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<MockupSectionSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *MockupSection*
+ */
+type MockupSectionSliceVariation = MockupSectionSliceDefault;
+
+/**
+ * MockupSection Shared Slice
+ *
+ * - **API ID**: `mockup_section`
+ * - **Description**: MockupSection
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type MockupSectionSlice = prismic.SharedSlice<
+  "mockup_section",
+  MockupSectionSliceVariation
+>;
+
+/**
+ * Primary content in *VideoSection → Default → Primary*
+ */
+export interface VideoSectionSliceDefaultPrimary {
+  /**
+   * Video field in *VideoSection → Default → Primary*
+   *
+   * - **Field Type**: Link to Media
+   * - **Placeholder**: Selecione o video em Media Library
+   * - **API ID Path**: video_section.default.primary.video
+   * - **Documentation**: https://prismic.io/docs/fields/link-to-media
+   */
+  video: prismic.LinkToMediaField<prismic.FieldState, never>;
+
+  /**
+   * Titulo da seçao field in *VideoSection → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Ex: Nosso ecossistema
+   * - **API ID Path**: video_section.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Descriçao field in *VideoSection → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Ex: Infraestrutura própria. Distribuição em rede. Dados como ativo
+   * - **API ID Path**: video_section.default.primary.description
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  description: prismic.RichTextField;
+}
+
+/**
+ * Default variation for VideoSection Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type VideoSectionSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<VideoSectionSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *VideoSection*
+ */
+type VideoSectionSliceVariation = VideoSectionSliceDefault;
+
+/**
+ * VideoSection Shared Slice
+ *
+ * - **API ID**: `video_section`
+ * - **Description**: VideoSection
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type VideoSectionSlice = prismic.SharedSlice<
+  "video_section",
+  VideoSectionSliceVariation
+>;
+
+/**
  * Item in *ZoomImages → Default → Primary → Imagens*
  */
 export interface ZoomImagesSliceDefaultPrimaryImagesItem {
@@ -540,6 +881,15 @@ declare module "@prismicio/client" {
       BigTextSectionSliceDefaultPrimary,
       BigTextSectionSliceVariation,
       BigTextSectionSliceDefault,
+      CarouselSectionSlice,
+      CarouselSectionSliceDefaultPrimaryCarouselItem,
+      CarouselSectionSliceDefaultPrimary,
+      CarouselSectionSliceVariation,
+      CarouselSectionSliceDefault,
+      CtaSectionSlice,
+      CtaSectionSliceDefaultPrimary,
+      CtaSectionSliceVariation,
+      CtaSectionSliceDefault,
       FeatureSlice,
       FeatureSliceDefaultPrimary,
       FeatureSliceVariation,
@@ -548,6 +898,14 @@ declare module "@prismicio/client" {
       HeroSliceDefaultPrimary,
       HeroSliceVariation,
       HeroSliceDefault,
+      MockupSectionSlice,
+      MockupSectionSliceDefaultPrimary,
+      MockupSectionSliceVariation,
+      MockupSectionSliceDefault,
+      VideoSectionSlice,
+      VideoSectionSliceDefaultPrimary,
+      VideoSectionSliceVariation,
+      VideoSectionSliceDefault,
       ZoomImagesSlice,
       ZoomImagesSliceDefaultPrimaryImagesItem,
       ZoomImagesSliceDefaultPrimary,

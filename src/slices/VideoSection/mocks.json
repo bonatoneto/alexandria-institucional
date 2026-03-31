@@ -1,0 +1,43 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"video": {
+				"__TYPE__": "LinkContent",
+				"key": "4fda7006-5232-42c9-b665-261d4c748793",
+				"value": {
+					"__TYPE__": "FileLink",
+					"id": "mock_Media_link",
+					"kind": "file",
+					"name": "mock_name",
+					"url": "https://source.unsplash.com/daily",
+					"size": "0"
+				}
+			},
+			"title": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading2",
+						"content": {
+							"text": "Worse"
+						}
+					}
+				]
+			},
+			"description": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Enim ut sunt incididunt nulla non. Nisi velit laboris tempor elit ea eu esse elit elit ad dolore adipisicing. Velit sunt cillum reprehenderit qui proident consectetur dolor proident incididunt commodo amet occaecat nostrud consequat."
+						}
+					}
+				]
+			}
+		},
+		"items": []
+	}
+]

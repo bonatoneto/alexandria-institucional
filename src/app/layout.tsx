@@ -35,7 +35,7 @@ export default async function RootLayout({
   return (
     <html
       lang="pt-BR"
-      className={`${baloo.variable} ${nunito.variable} h-full antialiased`}
+      className={`${baloo.variable} ${nunito.variable} h-full antialiased bg-white`}
     >
       <body className="min-h-full flex flex-col">
         <Header data={header.data} />

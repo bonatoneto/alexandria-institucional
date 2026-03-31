@@ -1,0 +1,62 @@
+{
+  "id": "mockup_section",
+  "type": "SharedSlice",
+  "name": "MockupSection",
+  "description": "MockupSection",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Titulo da seçao",
+            "placeholder": "Ex: Por que a Alexandria?",
+            "allowTargetBlank": true,
+            "multi": "heading2,heading3,heading4"
+          }
+        },
+        "subtitle": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Subtitulo da seçao",
+            "placeholder": "Ex: Infraestrutura própria",
+            "allowTargetBlank": true,
+            "multi": "heading3,heading4,heading5,heading6"
+          }
+        },
+        "text": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Texto descritivo da seçao",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,hyperlink,list-item,o-list-item,strong,em"
+          }
+        },
+        "mockup_image_primary": {
+          "type": "Image",
+          "config": {
+            "label": "Imagem do mockup primária",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "mockup_image_secondary": {
+          "type": "Image",
+          "config": {
+            "label": "Imagem do mockup secondária",
+            "constraint": {},
+            "thumbnails": []
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

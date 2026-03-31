@@ -9,7 +9,7 @@ type HeaderProps = {
 
 export default function Header({ data }: HeaderProps) {
   return (
-    <header className="fixed z-20 top-0 w-full bg-white">
+    <header className="fixed z-30 top-0 w-full bg-white">
       <GridContainer>
         <PrismicNextImage field={data.logo} className="py-6" />
         <nav className="col-start-9 col-auto col-end-13 w-full">

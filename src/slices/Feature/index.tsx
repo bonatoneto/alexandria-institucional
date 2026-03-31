@@ -37,7 +37,7 @@ const Feature: FC<FeatureProps> = ({ slice }) => {
             field={slice.primary.image}
           />
         </div>
-        <div className="flex flex-col justify-center gap-10 col-start-8 col-end-12">
+        <div className="flex flex-col justify-center gap-10 col-start-8 col-end-13">
           <div className="flex flex-col gap-3 col-start-8 text-white">
             <div className="font-baloo text-[2rem] font-semibold leading-tight">
               <PrismicRichText field={slice.primary.title} />

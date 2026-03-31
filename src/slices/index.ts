@@ -4,7 +4,11 @@ import dynamic from "next/dynamic";
 
 export const components = {
   big_text_section: dynamic(() => import("./BigTextSection")),
+  carousel_section: dynamic(() => import("./CarouselSection")),
+  cta_section: dynamic(() => import("./CtaSection")),
   feature: dynamic(() => import("./Feature")),
   hero: dynamic(() => import("./Hero")),
+  mockup_section: dynamic(() => import("./MockupSection")),
+  video_section: dynamic(() => import("./VideoSection")),
   zoom_images: dynamic(() => import("./ZoomImages")),
 };

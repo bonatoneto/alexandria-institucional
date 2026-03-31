@@ -4,8 +4,11 @@
   --font-nunito: var(--font-nunito);
   --font-baloo: var(--font-baloo);
   --color-dark: #383838;
-  --gradient-cta: linear-gradient(90deg, #284998 0%, #7c51a1 100%);
   --color-purple-lex: #7c51a1;
+}
+
+@utility bg-gradient-cta {
+  background-image: linear-gradient(90deg, #284998 0%, #7c51a1 100%);
 }
 
 @utility bg-gradient-lex {

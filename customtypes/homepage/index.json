@@ -11,6 +11,18 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "carousel_section": {
+              "type": "SharedSlice"
+            },
+            "mockup_section": {
+              "type": "SharedSlice"
+            },
+            "video_section": {
+              "type": "SharedSlice"
+            },
+            "cta_section": {
+              "type": "SharedSlice"
+            },
             "zoom_images": {
               "type": "SharedSlice"
             },

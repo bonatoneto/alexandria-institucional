@@ -1,0 +1,46 @@
+{
+  "id": "video_section",
+  "type": "SharedSlice",
+  "name": "VideoSection",
+  "description": "VideoSection",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "video": {
+          "type": "Link",
+          "config": {
+            "label": "Video",
+            "placeholder": "Selecione o video em Media Library",
+            "select": "media",
+            "allowText": false
+          }
+        },
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Titulo da seçao",
+            "placeholder": "Ex: Nosso ecossistema",
+            "allowTargetBlank": true,
+            "multi": "heading2,heading3,heading4,strong"
+          }
+        },
+        "description": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Descriçao",
+            "placeholder": "Ex: Infraestrutura própria. Distribuição em rede. Dados como ativo",
+            "allowTargetBlank": true,
+            "multi": "paragraph,heading6,heading5,em,o-list-item,list-item,hyperlink"
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

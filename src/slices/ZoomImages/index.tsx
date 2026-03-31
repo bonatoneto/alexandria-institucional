@@ -1,6 +1,7 @@
 import { FC } from "react";
 
 import GridContainer from "@/components/container";
+import Divider from "@/components/divider";
 
 import { Content } from "@prismicio/client";
 import { PrismicNextImage } from "@prismicio/next";
@@ -9,8 +10,6 @@ import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
 export type ZoomImagesProps = SliceComponentProps<Content.ZoomImagesSlice>;
 
 const ZoomImages: FC<ZoomImagesProps> = ({ slice }) => {
-  console.log(slice);
-
   return (
     <section
       data-slice-type={slice.slice_type}
@@ -22,7 +21,7 @@ const ZoomImages: FC<ZoomImagesProps> = ({ slice }) => {
           <div className="font-baloo text-[2rem] text-dark font-bold">
             <PrismicRichText field={slice.primary.title} />
           </div>
-          <div className="h-1 w-full max-w-20 bg-gradient-lex"></div>
+          <Divider />
           <div className="font-nunito text-dark text-lg tracking-[0.54px]">
             <PrismicRichText field={slice.primary.text} />
           </div>
@@ -37,6 +36,7 @@ const ZoomImages: FC<ZoomImagesProps> = ({ slice }) => {
                 field={item.image}
                 className="w-full h-full object-cover rounded-4xl"
               />
+              <div className="absolute inset-0 bg-black opacity-20 rounded-4xl"></div>
               <div className="absolute inset-0 w-full flex flex-col justify-end gap-1 px-6 py-12 text-white">
                 <div className="font-baloo text-2xl font-bold">
                   <PrismicRichText field={item.image_title} />
