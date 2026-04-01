@@ -1,7 +1,7 @@
 import { FC } from "react";
 
-// import CarouselCards from "@/components/carousel-cards";
 import Carousel from "@/components/carousel";
+import CarouselMobile from "@/components/carousel-mobile";
 import GridContainer from "@/components/container";
 import Divider from "@/components/divider";
 
@@ -16,12 +16,16 @@ const CarouselSection: FC<CarouselSectionProps> = ({ slice }) => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      style={{ backgroundImage: `url(${slice.primary.backgorund_image.url})` }}
-      className="relative overflow-x-clip overflow-y-visible bg-center bg-cover w-full bg-no-repeat max-h-90"
     >
-      <GridContainer className="items-center !pr-0">
-        <div className="flex flex-col gap-5 text-white col-start-1 col-end-6">
-          <div className="font-baloo text-5xl font-bold">
+      {/* Mobile */}
+      <div className="flex flex-col md:hidden sm:mt-12">
+        <div
+          style={{
+            backgroundImage: `url(${slice.primary.backgorund_image.url})`,
+          }}
+          className="flex flex-col items-center gap-8 text-white text-center bg-center bg-cover bg-no-repeat px-6 pt-12 pb-[240px]"
+        >
+          <div className="font-baloo text-[2rem] font-bold leading-[100%]">
             <PrismicRichText field={slice.primary.title} />
           </div>
           <Divider variant="solid" />
@@ -29,10 +33,33 @@ const CarouselSection: FC<CarouselSectionProps> = ({ slice }) => {
             <PrismicRichText field={slice.primary.description} />
           </div>
         </div>
-        <div className="col-start-7 col-end-13 overflow-visible -mt-8">
-          <Carousel items={slice.primary.carousel} />
+        <div className="overflow-x-clip -mt-[220px]">
+          <CarouselMobile items={slice.primary.carousel} />
         </div>
-      </GridContainer>
+      </div>
+
+      {/* Desktop */}
+      <div
+        style={{
+          backgroundImage: `url(${slice.primary.backgorund_image.url})`,
+        }}
+        className="hidden md:block relative overflow-x-clip overflow-y-visible bg-center bg-cover w-full bg-no-repeat max-h-90"
+      >
+        <GridContainer className="items-center !pr-0">
+          <div className="flex flex-col gap-5 text-white col-start-1 col-end-6">
+            <div className="font-baloo text-5xl font-bold">
+              <PrismicRichText field={slice.primary.title} />
+            </div>
+            <Divider variant="solid" />
+            <div className="font-nunito text-lg">
+              <PrismicRichText field={slice.primary.description} />
+            </div>
+          </div>
+          <div className="col-start-7 col-end-13 overflow-visible -mt-8">
+            <Carousel items={slice.primary.carousel} />
+          </div>
+        </GridContainer>
+      </div>
     </section>
   );
 };

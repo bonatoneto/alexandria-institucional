@@ -20,16 +20,28 @@ export default function MockupOrbit({ primary, secondary }: MockupOrbitProps) {
   const phone2Ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const ctx = gsap.context(() => {
-      // Set initial state before animation
-      gsap.set(phone1Ref.current, { y: -60, x: -40, scale: 0.85, opacity: 0 });
-      gsap.set(phone2Ref.current, { y: 60, x: 40, scale: 0.85, opacity: 0 });
+    const isMobile = window.matchMedia("(max-width: 767px)").matches;
 
-      // Entrance animation triggered on scroll
+    ScrollTrigger.refresh();
+
+    const ctx = gsap.context(() => {
+      gsap.set(phone1Ref.current, {
+        y: isMobile ? 40 : -60,
+        x: isMobile ? -20 : -40,
+        scale: 0.85,
+        opacity: 0,
+      });
+      gsap.set(phone2Ref.current, {
+        y: isMobile ? 40 : 60,
+        x: isMobile ? 20 : 40,
+        scale: 0.85,
+        opacity: 0,
+      });
+
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: containerRef.current,
-          start: "top 75%",
+          start: isMobile ? "top 90%" : "top 75%",
           once: true,
         },
       });
@@ -54,7 +66,6 @@ export default function MockupOrbit({ primary, secondary }: MockupOrbitProps) {
         "-=1.4",
       );
 
-      // Continuous float loop after entrance
       tl.add(() => {
         gsap.to(phone1Ref.current, {
           y: -14,
@@ -79,20 +90,22 @@ export default function MockupOrbit({ primary, secondary }: MockupOrbitProps) {
   }, []);
 
   return (
-    <div ref={containerRef} className="relative w-full">
+    <div
+      ref={containerRef}
+      className="relative flex w-full min-h-[400px] items-start justify-center md:block md:min-h-0"
+    >
       <div
         ref={phone1Ref}
-        className="absolute left-[10%] xl:left-[20%] -top-40 w-[max(280px,42%)] z-20"
+        className="relative z-20 w-[45%] -mr-[5%] md:absolute md:mr-0 md:w-[max(280px,42%)] md:left-[10%] xl:left-[20%] md:-top-40"
       >
         <PrismicNextImage
           field={primary}
           className="w-full h-auto drop-shadow-2xl"
         />
       </div>
-
       <div
         ref={phone2Ref}
-        className="absolute right-[0%] xl:-top-32 w-[max(280px,42%)] z-10"
+        className="relative z-10 w-[45%] -ml-[5%] mt-16 md:mt-0 md:absolute md:ml-0 md:w-[max(280px,42%)] md:right-0 xl:md:-top-32"
       >
         <PrismicNextImage
           field={secondary}

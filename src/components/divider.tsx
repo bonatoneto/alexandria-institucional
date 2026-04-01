@@ -13,8 +13,10 @@ const divider = tv({
   },
 });
 
-type DividerProps = VariantProps<typeof divider>;
+type DividerProps = VariantProps<typeof divider> & {
+  className?: string;
+};
 
-export default function Divider({ variant }: DividerProps) {
-  return <div className={divider({ variant })} />;
+export default function Divider({ variant, className }: DividerProps) {
+  return <div className={divider({ variant, className })} />;
 }

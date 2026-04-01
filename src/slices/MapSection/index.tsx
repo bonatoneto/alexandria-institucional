@@ -1,6 +1,7 @@
 import { FC } from "react";
 
 import GridContainer from "@/components/container";
+import Divider from "@/components/divider";
 
 import { Content } from "@prismicio/client";
 import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
@@ -14,10 +15,11 @@ const MapSection: FC<MapSectionProps> = ({ slice }) => {
       data-slice-variation={slice.variation}
     >
       <GridContainer className="rounded-b-4xl relative z-10 bg-white">
-        <div className="flex flex-col col-start-1 col-end-13 items-center gap-7 text-dark text-center pt-32 pb-24">
-          <div className="font-baloo text-5xl font-semibold">
+        <div className="flex flex-col col-start-1 col-end-13 items-center gap-8 md:gap-6 text-dark text-center py-14 md:pt-32 md:pb-24">
+          <div className="font-baloo text-4xl md:text-5xl font-semibold leading-[100%]">
             <PrismicRichText field={slice.primary.title} />
           </div>
+          <Divider />
           <div className="font-nunito text-lg">
             <PrismicRichText field={slice.primary.text} />
           </div>

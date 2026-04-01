@@ -16,16 +16,16 @@ const Feature: FC<FeatureProps> = ({ slice }) => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="bg-[url('/assets/background-purple.png')] w-full inset-0 relative bg-no-repeat bg-cover py-14 md:py-8"
+      className="bg-[url('/assets/background-purple.png')] w-full inset-0 relative bg-no-repeat bg-cover pb-14 md:py-8"
     >
       <div className="flex flex-col items-center md:hidden mx-4 pt-0">
-        <div className="relative w-[70%] aspect-square -mt-[35%] rounded-4xl overflow-hidden shrink-0">
-          <PrismicNextImage
-            className="w-full h-full object-cover"
-            field={slice.primary.image}
-          />
-        </div>
-        <div className="flex flex-col gap-3 text-white text-center sm:pt-8">
+        {/* <div className="relative w-[100%] aspect-square -mt-[35%] rounded-4xl overflow-hidden shrink-0"> */}
+        <PrismicNextImage
+          className="w-full h-full object-contain object-center -mt-[40%]"
+          field={slice.primary.image}
+        />
+        {/* </div> */}
+        <div className="flex flex-col gap-3 text-white text-center mt-8">
           <div className="font-baloo text-[2rem] font-semibold leading-tight">
             <PrismicRichText field={slice.primary.title} />
           </div>
@@ -45,12 +45,9 @@ const Feature: FC<FeatureProps> = ({ slice }) => {
 
       <GridContainer className="hidden md:grid">
         <div className="col-start-1 col-end-7 flex">
-          <PrismicNextImage
-            className="rounded-2xl"
-            field={slice.primary.image}
-          />
+          <PrismicNextImage className="pb-14" field={slice.primary.image} />
         </div>
-        <div className="flex flex-col justify-center items-center gap-10 col-start-8 col-end-13 text-center">
+        <div className="flex flex-col justify-center items-center gap-10 col-start-8 col-end-13">
           <div className="flex flex-col gap-3 text-white">
             <div className="font-baloo text-[2rem] font-semibold leading-tight">
               <PrismicRichText field={slice.primary.title} />
