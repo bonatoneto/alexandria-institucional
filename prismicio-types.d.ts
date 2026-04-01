@@ -70,6 +70,200 @@ type ContentRelationshipFieldWithData<
 }[Exclude<TCustomType[number], string>["id"]];
 
 /**
+ * Item in *Footer → Selos*
+ */
+export interface FooterDocumentDataSelosItem {
+  /**
+   * Selo field in *Footer → Selos*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.selos[].selo
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  selo: prismic.ImageField<never>;
+}
+
+/**
+ * Item in *Footer → Social Media*
+ */
+export interface FooterDocumentDataSocialMediaItem {
+  /**
+   * Ícone social field in *Footer → Social Media*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.social_media[].social_icon
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  social_icon: prismic.ImageField<never>;
+
+  /**
+   * Link social field in *Footer → Social Media*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: Ex: https://www.instagram.com/alexandria.energia/
+   * - **API ID Path**: footer.social_media[].social_link
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  social_link: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
+}
+
+/**
+ * Item in *Footer → Links Externos*
+ */
+export interface FooterDocumentDataLinksExternosItem {
+  /**
+   * Link field in *Footer → Links Externos*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: Ex: Politicas de privacidade
+   * - **API ID Path**: footer.links_externos[].link
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
+}
+
+/**
+ * Content for Footer documents
+ */
+interface FooterDocumentData {
+  /**
+   * Imagem de background field in *Footer*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.background_image
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  background_image: prismic.ImageField<never>;
+
+  /**
+   * Logo field in *Footer*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.logo
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  logo: prismic.ImageField<never>;
+
+  /**
+   * Selos field in *Footer*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.selos[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  selos: prismic.GroupField<Simplify<FooterDocumentDataSelosItem>>;
+
+  /**
+   * Titulo endereço field in *Footer*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Ex: Endereço
+   * - **API ID Path**: footer.title_address
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  title_address: prismic.RichTextField;
+
+  /**
+   * Endereço field in *Footer*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Ex: R. Fernando Amaro, 60 - Alto da XV, Curitiba - PR, 80045-080
+   * - **API ID Path**: footer.address
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  address: prismic.RichTextField;
+
+  /**
+   * Titulo Social Media field in *Footer*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Ex: Siga a Alexandria nas redes sociais
+   * - **API ID Path**: footer.social_media_title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  social_media_title: prismic.RichTextField;
+
+  /**
+   * Social Media field in *Footer*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.social_media[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  social_media: prismic.GroupField<Simplify<FooterDocumentDataSocialMediaItem>>;
+
+  /**
+   * Texto de Copyright field in *Footer*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Ex: © 2025 Alexandria. Todos os direitos reservados.
+   * - **API ID Path**: footer.copyright_text
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  copyright_text: prismic.RichTextField;
+
+  /**
+   * Links Externos field in *Footer*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.links_externos[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  links_externos: prismic.GroupField<
+    Simplify<FooterDocumentDataLinksExternosItem>
+  >;
+
+  /**
+   * Numero de suporte  field in *Footer*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Ex: numero do WhtasApp
+   * - **API ID Path**: footer.support_number
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  support_number: prismic.KeyTextField;
+}
+
+/**
+ * Footer document from Prismic
+ *
+ * - **API ID**: `footer`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/content-modeling
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type FooterDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<FooterDocumentData>,
+    "footer",
+    Lang
+  >;
+
+/**
  * Item in *Header → Menu de navegaçao*
  */
 export interface HeaderDocumentDataMenuNavigationItem {
@@ -140,6 +334,7 @@ export type HeaderDocument<Lang extends string = string> =
   >;
 
 type HomepageDocumentDataSlicesSlice =
+  | MapSectionSlice
   | CarouselSectionSlice
   | MockupSectionSlice
   | VideoSectionSlice
@@ -212,7 +407,10 @@ export type HomepageDocument<Lang extends string = string> =
     Lang
   >;
 
-export type AllDocumentTypes = HeaderDocument | HomepageDocument;
+export type AllDocumentTypes =
+  | FooterDocument
+  | HeaderDocument
+  | HomepageDocument;
 
 /**
  * Primary content in *BigTextSection → Default → Primary*
@@ -600,6 +798,81 @@ type HeroSliceVariation = HeroSliceDefault;
 export type HeroSlice = prismic.SharedSlice<"hero", HeroSliceVariation>;
 
 /**
+ * Primary content in *MapSection → Default → Primary*
+ */
+export interface MapSectionSliceDefaultPrimary {
+  /**
+   * Titulo da seção  field in *MapSection → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Ex: Onde nós estamos?
+   * - **API ID Path**: map_section.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Texto descritivo da seção  field in *MapSection → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: map_section.default.primary.text
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  text: prismic.RichTextField;
+
+  /**
+   * Latitude field in *MapSection → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Ex: -23.5505
+   * - **API ID Path**: map_section.default.primary.latitude
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  latitude: prismic.KeyTextField;
+
+  /**
+   * Longitude field in *MapSection → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: -32.5602
+   * - **API ID Path**: map_section.default.primary.longitude
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  longitude: prismic.KeyTextField;
+}
+
+/**
+ * Default variation for MapSection Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type MapSectionSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<MapSectionSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *MapSection*
+ */
+type MapSectionSliceVariation = MapSectionSliceDefault;
+
+/**
+ * MapSection Shared Slice
+ *
+ * - **API ID**: `map_section`
+ * - **Description**: MapSection
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type MapSectionSlice = prismic.SharedSlice<
+  "map_section",
+  MapSectionSliceVariation
+>;
+
+/**
  * Primary content in *MockupSection → Default → Primary*
  */
 export interface MockupSectionSliceDefaultPrimary {
@@ -870,6 +1143,11 @@ declare module "@prismicio/client" {
 
   namespace Content {
     export type {
+      FooterDocument,
+      FooterDocumentData,
+      FooterDocumentDataSelosItem,
+      FooterDocumentDataSocialMediaItem,
+      FooterDocumentDataLinksExternosItem,
       HeaderDocument,
       HeaderDocumentData,
       HeaderDocumentDataMenuNavigationItem,
@@ -898,6 +1176,10 @@ declare module "@prismicio/client" {
       HeroSliceDefaultPrimary,
       HeroSliceVariation,
       HeroSliceDefault,
+      MapSectionSlice,
+      MapSectionSliceDefaultPrimary,
+      MapSectionSliceVariation,
+      MapSectionSliceDefault,
       MockupSectionSlice,
       MockupSectionSliceDefaultPrimary,
       MockupSectionSliceVariation,

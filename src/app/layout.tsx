@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Baloo_2, Nunito } from "next/font/google";
 
+import Footer from "@/components/footer";
 import Header from "@/components/header";
 
 import { createClient } from "@/prismicio";
@@ -31,6 +32,7 @@ export default async function RootLayout({
 }>) {
   const client = createClient();
   const header = await client.getSingle("header");
+  const footer = await client.getSingle("footer");
 
   return (
     <html
@@ -40,6 +42,7 @@ export default async function RootLayout({
       <body className="min-h-full flex flex-col">
         <Header data={header.data} />
         {children}
+        <Footer data={footer.data} />
       </body>
     </html>
   );

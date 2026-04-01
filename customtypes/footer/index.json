@@ -1,0 +1,135 @@
+{
+  "format": "custom",
+  "id": "footer",
+  "label": "Footer",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "background_image": {
+        "type": "Image",
+        "config": {
+          "label": "Imagem de background",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "logo": {
+        "type": "Image",
+        "config": {
+          "label": "Logo",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "selos": {
+        "type": "Group",
+        "config": {
+          "label": "Selos",
+          "repeat": true,
+          "fields": {
+            "selo": {
+              "type": "Image",
+              "config": {
+                "label": "Selo",
+                "constraint": {},
+                "thumbnails": []
+              }
+            }
+          }
+        }
+      },
+      "title_address": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Titulo endereço",
+          "placeholder": "Ex: Endereço",
+          "allowTargetBlank": true,
+          "multi": "heading5,heading6,heading4"
+        }
+      },
+      "address": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Endereço",
+          "placeholder": "Ex: R. Fernando Amaro, 60 - Alto da XV, Curitiba - PR, 80045-080",
+          "allowTargetBlank": true,
+          "multi": "paragraph,hyperlink,em,strong"
+        }
+      },
+      "social_media_title": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Titulo Social Media",
+          "placeholder": "Ex: Siga a Alexandria nas redes sociais",
+          "allowTargetBlank": true,
+          "multi": "paragraph,hyperlink,em,strong"
+        }
+      },
+      "social_media": {
+        "type": "Group",
+        "config": {
+          "label": "Social Media",
+          "repeat": true,
+          "fields": {
+            "social_icon": {
+              "type": "Image",
+              "config": {
+                "label": "Ícone social",
+                "constraint": {},
+                "thumbnails": []
+              }
+            },
+            "social_link": {
+              "type": "Link",
+              "config": {
+                "label": "Link social",
+                "placeholder": "Ex: https://www.instagram.com/alexandria.energia/",
+                "select": null,
+                "allowTargetBlank": true,
+                "allowText": false,
+                "repeat": false
+              }
+            }
+          }
+        }
+      },
+      "copyright_text": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Texto de Copyright",
+          "placeholder": "Ex: © 2025 Alexandria. Todos os direitos reservados.",
+          "allowTargetBlank": true,
+          "multi": "paragraph"
+        }
+      },
+      "links_externos": {
+        "type": "Group",
+        "config": {
+          "label": "Links Externos",
+          "repeat": true,
+          "fields": {
+            "link": {
+              "type": "Link",
+              "config": {
+                "label": "Link",
+                "placeholder": "Ex: Politicas de privacidade",
+                "select": null,
+                "allowTargetBlank": true,
+                "allowText": true,
+                "repeat": false
+              }
+            }
+          }
+        }
+      },
+      "support_number": {
+        "type": "Text",
+        "config": {
+          "label": "Numero de suporte ",
+          "placeholder": "Ex: numero do WhtasApp"
+        }
+      }
+    }
+  }
+}

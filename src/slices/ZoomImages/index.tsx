@@ -1,4 +1,6 @@
-import { FC } from "react";
+"use client";
+
+import { FC, useState } from "react";
 
 import GridContainer from "@/components/container";
 import Divider from "@/components/divider";
@@ -10,6 +12,7 @@ import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
 export type ZoomImagesProps = SliceComponentProps<Content.ZoomImagesSlice>;
 
 const ZoomImages: FC<ZoomImagesProps> = ({ slice }) => {
+  const [activeCard, setActiveCard] = useState<number>(0);
   return (
     <section
       data-slice-type={slice.slice_type}
@@ -18,7 +21,7 @@ const ZoomImages: FC<ZoomImagesProps> = ({ slice }) => {
     >
       <GridContainer>
         <div className="flex flex-col gap-5 col-start-1 col-end-5">
-          <div className="font-baloo text-[2rem] text-dark font-bold">
+          <div className="font-baloo text-[2rem] text-dark font-semibold pt-9">
             <PrismicRichText field={slice.primary.title} />
           </div>
           <Divider />
@@ -26,11 +29,16 @@ const ZoomImages: FC<ZoomImagesProps> = ({ slice }) => {
             <PrismicRichText field={slice.primary.text} />
           </div>
         </div>
-        <ul className="col-start-6 flex col-end-13 gap-4">
+        <ul className="col-start-6 col-end-13 flex items-center justify-end gap-4">
           {slice.primary.images.map((item, index) => (
             <li
               key={index}
-              className="relative flex-1 overflow-hidden scale-90 hover:scale-100 transition-transform duration-300 ease-in-out"
+              className="relative overflow-hidden transition-all duration-300 ease-in-out"
+              style={{
+                width: activeCard === index ? "322px" : "242px",
+                height: activeCard === index ? "424px" : "318px",
+              }}
+              onMouseEnter={() => setActiveCard(index)}
             >
               <PrismicNextImage
                 field={item.image}
@@ -41,9 +49,11 @@ const ZoomImages: FC<ZoomImagesProps> = ({ slice }) => {
                 <div className="font-baloo text-2xl font-bold">
                   <PrismicRichText field={item.image_title} />
                 </div>
-                <div className="font-nunito text-base tracking-[0.48px]">
-                  <PrismicRichText field={item.image_description} />
-                </div>
+                {activeCard === index && (
+                  <div className="font-nunito text-base tracking-[0.48px]">
+                    <PrismicRichText field={item.image_description} />
+                  </div>
+                )}
               </div>
             </li>
           ))}

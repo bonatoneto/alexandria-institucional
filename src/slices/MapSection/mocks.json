@@ -1,0 +1,41 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"title": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading2",
+						"content": {
+							"text": "Stairs"
+						}
+					}
+				]
+			},
+			"text": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Consectetur laborum ullamco Lorem eiusmod enim duis."
+						}
+					}
+				]
+			},
+			"latitude": {
+				"__TYPE__": "FieldContent",
+				"value": "cloud",
+				"type": "Text"
+			},
+			"longitude": {
+				"__TYPE__": "FieldContent",
+				"value": "neck",
+				"type": "Text"
+			}
+		},
+		"items": []
+	}
+]

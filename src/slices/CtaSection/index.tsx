@@ -25,12 +25,12 @@ const CtaSection: FC<CtaSectionProps> = ({ slice }) => {
             <PrismicRichText field={slice.primary.text} />
           </div>
         </div>
-        <div className="flex flex-col gap-5 col-start-9 col-end-13">
-          <CTAButton variant="gradient" href="#">
+        <div className="flex flex-col justify-center gap-5 col-start-9 col-end-13">
+          {/* <CTAButton variant="gradient" href="#">
             Trabalhar com a Lex
-          </CTAButton>
+          </CTAButton> */}
           <CTAButton variant="purple" href="#">
-            Me tornar cliente Lex
+            Conheça a Lex
           </CTAButton>
         </div>
       </GridContainer>

@@ -12,7 +12,7 @@ export default function GridContainer({
   return (
     <div
       className={cn(
-        "grid grid-cols-12 mx-auto w-full px-6 lg:px-24",
+        "grid grid-cols-12 mx-auto w-full px-4 lg:px-24",
         className,
       )}
     >

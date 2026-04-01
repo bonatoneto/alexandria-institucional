@@ -1,5 +1,7 @@
 import { FC } from "react";
 
+import Divider from "@/components/divider";
+
 import { Content } from "@prismicio/client";
 import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
 
@@ -14,13 +16,13 @@ const BigTextSection: FC<BigTextSectionProps> = ({ slice }) => {
       style={{
         backgroundImage: `url(${slice.primary.background_image.url})`,
       }}
-      className="bg-cover bg-center py-24 flex items-center justify-center"
+      className="bg-cover bg-center pt-12 pb-24 md:py-24 flex items-center justify-center"
     >
-      <div className="flex flex-col items-center gap-12">
-        <div className="text-5xl text-dark font-semibold text-center font-baloo">
+      <div className="flex flex-col items-center gap-8 md:gap-12 pb-24 sm:pb-48 md:pb-0">
+        <div className="text-[2rem] leading-[100%] md:leading-[120%] md:text-5xl text-dark font-semibold text-center font-baloo">
           <PrismicRichText field={slice.primary.text} />
         </div>
-        <div className="h-1 w-full max-w-56 bg-gradient-lex"></div>
+        <Divider />
       </div>
     </section>
   );

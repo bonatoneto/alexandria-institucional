@@ -1,0 +1,51 @@
+{
+  "id": "map_section",
+  "type": "SharedSlice",
+  "name": "MapSection",
+  "description": "MapSection",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Titulo da seção ",
+            "placeholder": "Ex: Onde nós estamos?",
+            "allowTargetBlank": true,
+            "multi": "heading2,heading3,heading4"
+          }
+        },
+        "text": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Texto descritivo da seção ",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,hyperlink,em,strong"
+          }
+        },
+        "latitude": {
+          "type": "Text",
+          "config": {
+            "label": "Latitude",
+            "placeholder": "Ex: -23.5505"
+          }
+        },
+        "longitude": {
+          "type": "Text",
+          "config": {
+            "label": "Longitude",
+            "placeholder": "-32.5602"
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

@@ -8,6 +8,7 @@ export const components = {
   cta_section: dynamic(() => import("./CtaSection")),
   feature: dynamic(() => import("./Feature")),
   hero: dynamic(() => import("./Hero")),
+  map_section: dynamic(() => import("./MapSection")),
   mockup_section: dynamic(() => import("./MockupSection")),
   video_section: dynamic(() => import("./VideoSection")),
   zoom_images: dynamic(() => import("./ZoomImages")),

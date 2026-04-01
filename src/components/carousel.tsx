@@ -16,10 +16,8 @@ type CarouselCardsProps = {
 };
 
 export default function Carousel({ items }: CarouselCardsProps) {
-  const loopedItems = [...items, ...items, ...items];
-
   return (
-    <div className="w-full overflow-visible [&_.swiper]:overflow-visible [&_.swiper-wrapper]:items-center [&_.swiper-slide-prev]:!w-[322px] [&_.swiper-slide-prev_.card]:h-[424px] [&_.swiper-slide-prev_.card]:w-full [&_.description]:hidden [&_.swiper-slide-prev_.description]:block">
+    <div className="w-full h-[424px] overflow-x-visible overflow-y-hidden [&_.swiper]:overflow-visible [&_.swiper-wrapper]:!items-stretch [&_.swiper-slide]:transition-[width] [&_.swiper-slide]:duration-300 [&_.swiper-slide]:!h-[424px] [&_.swiper-slide]:!flex [&_.swiper-slide]:!items-center [&_.swiper-slide-prev]:!w-[322px] [&_.swiper-slide-prev_.card]:h-[424px] [&_.swiper-slide-prev_.card]:w-full [&_.description]:hidden [&_.swiper-slide-prev_.description]:block z-20 relative">
       <Swiper
         slidesPerView={3}
         spaceBetween={16}
@@ -27,16 +25,16 @@ export default function Carousel({ items }: CarouselCardsProps) {
         centeredSlides={true}
         observer={true}
         observeParents={true}
-        initialSlide={items.length}
+        speed={600}
         modules={[Autoplay]}
         autoplay={{
           delay: 3000,
           disableOnInteraction: false,
         }}
       >
-        {loopedItems.map((item, index) => (
+        {[...items, ...items].map((item, index) => (
           <SwiperSlide key={index}>
-            <div className="relative card h-[318px] w-full rounded-2xl overflow-hidden transition-all duration-300">
+            <div className="relative card !min-h-[318px] h-[318px] w-full rounded-[28px] overflow-hidden transition-[height,min-height,width] duration-300">
               <PrismicNextImage
                 field={item.image}
                 className="w-full h-full object-cover"

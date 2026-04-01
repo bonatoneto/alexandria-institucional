@@ -11,7 +11,7 @@ export default function Header({ data }: HeaderProps) {
   return (
     <header className="fixed z-30 top-0 w-full bg-white">
       <GridContainer>
-        <PrismicNextImage field={data.logo} className="py-6" />
+        <PrismicNextImage field={data.logo} className="h-full min-w-[196px]" />
         <nav className="col-start-9 col-auto col-end-13 w-full">
           <ul className="flex gap-6 font-nunito font-sm text-nowrap justify-between">
             {data.menu_navigation.map((item) => (
