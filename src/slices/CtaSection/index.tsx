@@ -17,7 +17,8 @@ const CtaSection: FC<CtaSectionProps> = ({ slice }) => {
       className="py-12 md:py-24 bg-cover bg-center"
       style={{ backgroundImage: `url(${slice.primary.background_image.url})` }}
     >
-      <GridContainer className="hidden md:block">
+      {/* Desktop */}
+      <GridContainer className="hidden md:grid">
         <div className="flex flex-col gap-5 col-start-1 col-end-6">
           <div className="font-baloo text-5xl font-semibold leading-[100%] text-dark">
             <PrismicRichText field={slice.primary.title} />
@@ -32,6 +33,7 @@ const CtaSection: FC<CtaSectionProps> = ({ slice }) => {
           </CTAButton>
         </div>
       </GridContainer>
+      {/* Mobile */}
       <GridContainer className="flex md:hidden">
         <div className="flex flex-col items-center gap-8">
           <div className="font-baloo text-4xl font-semibold leading-[100%] text-dark">

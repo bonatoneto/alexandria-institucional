@@ -20,7 +20,7 @@ const ZoomImages: FC<ZoomImagesProps> = ({ slice }) => {
       className="py-14 md:py-22"
     >
       {/* Desktop */}
-      <GridContainer className="hidden md:block">
+      <GridContainer className="hidden md:grid">
         <div className="flex flex-col gap-5 col-start-1 col-end-5">
           <div className="font-baloo text-[2rem] text-dark font-semibold md:pt-9">
             <PrismicRichText field={slice.primary.title} />
