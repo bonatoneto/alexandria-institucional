@@ -1,5 +1,6 @@
 import { FC } from "react";
 
+import AnimateOnView from "@/components/animate-on-view";
 import Carousel from "@/components/carousel";
 import CarouselMobile from "@/components/carousel-mobile";
 import GridContainer from "@/components/container";
@@ -26,13 +27,19 @@ const CarouselSection: FC<CarouselSectionProps> = ({ slice }) => {
           }}
           className="flex flex-col items-center gap-8 text-white text-center bg-center bg-cover bg-no-repeat px-6 pt-12 pb-[240px]"
         >
-          <div className="font-baloo text-[2rem] font-bold leading-[100%]">
-            <PrismicRichText field={slice.primary.title} />
-          </div>
-          <Divider variant="solid" />
-          <div className="font-nunito text-lg">
-            <PrismicRichText field={slice.primary.description} />
-          </div>
+          <AnimateOnView>
+            <div className="font-baloo text-[2rem] font-bold leading-[100%]">
+              <PrismicRichText field={slice.primary.title} />
+            </div>
+          </AnimateOnView>
+          <AnimateOnView delay={0.1}>
+            <Divider variant="solid" />
+          </AnimateOnView>
+          <AnimateOnView delay={0.2}>
+            <div className="font-nunito text-lg">
+              <PrismicRichText field={slice.primary.description} />
+            </div>
+          </AnimateOnView>
         </div>
         <div className="overflow-x-clip -mt-[220px]">
           <CarouselMobile items={slice.primary.carousel} />
@@ -48,13 +55,19 @@ const CarouselSection: FC<CarouselSectionProps> = ({ slice }) => {
       >
         <GridContainer className="items-center !pr-0">
           <div className="flex flex-col gap-5 text-white col-start-1 col-end-6">
-            <div className="font-baloo text-5xl font-bold">
-              <PrismicRichText field={slice.primary.title} />
-            </div>
-            <Divider variant="solid" />
-            <div className="font-nunito text-lg">
-              <PrismicRichText field={slice.primary.description} />
-            </div>
+            <AnimateOnView>
+              <div className="font-baloo text-5xl font-bold">
+                <PrismicRichText field={slice.primary.title} />
+              </div>
+            </AnimateOnView>
+            <AnimateOnView delay={0.1}>
+              <Divider variant="solid" />
+            </AnimateOnView>
+            <AnimateOnView delay={0.2}>
+              <div className="font-nunito text-lg">
+                <PrismicRichText field={slice.primary.description} />
+              </div>
+            </AnimateOnView>
           </div>
           <div className="col-start-7 col-end-13 overflow-visible -mt-8">
             <Carousel items={slice.primary.carousel} />

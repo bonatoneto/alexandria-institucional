@@ -2,6 +2,7 @@
 
 import { FC } from "react";
 
+import AnimateOnView from "@/components/animate-on-view";
 import GridContainer from "@/components/container";
 import CTAButton from "@/components/cta-button";
 
@@ -20,28 +21,27 @@ const Feature: FC<FeatureProps> = ({ slice }) => {
       className="bg-[url('/assets/background-purple.png')] w-full inset-0 relative bg-no-repeat bg-cover pb-14 md:py-8"
     >
       <div className="flex flex-col items-center md:hidden mx-4 pt-0">
-        {/* <div className="relative w-[100%] aspect-square -mt-[35%] rounded-4xl overflow-hidden shrink-0"> */}
         <PrismicNextImage
           className="w-full h-full object-contain object-center -mt-[40%]"
           field={slice.primary.image}
         />
-        {/* </div> */}
         <div className="flex flex-col gap-3 text-white text-center mt-8">
-          <div className="font-baloo text-[2rem] font-semibold leading-tight">
-            <PrismicRichText field={slice.primary.title} />
-          </div>
-          <div className="font-nunito text-[1.25rem] leading-snug">
-            <PrismicRichText field={slice.primary.description} />
-          </div>
+          <AnimateOnView>
+            <div className="font-baloo text-[2rem] font-semibold leading-tight">
+              <PrismicRichText field={slice.primary.title} />
+            </div>
+          </AnimateOnView>
+          <AnimateOnView delay={0.15}>
+            <div className="font-nunito text-[1.25rem] leading-snug">
+              <PrismicRichText field={slice.primary.description} />
+            </div>
+          </AnimateOnView>
         </div>
-        <div className="flex flex-col gap-5 w-full mt-8">
+        <AnimateOnView delay={0.3} className="flex flex-col gap-5 w-full mt-8">
           <CTAButton href="#" variant="white">
             Conheça a Lex
           </CTAButton>
-          {/* <CTAButton href="#" variant="white">
-            Trabalhe com a Lex
-          </CTAButton> */}
-        </div>
+        </AnimateOnView>
       </div>
 
       <GridContainer className="hidden md:grid">
@@ -50,21 +50,22 @@ const Feature: FC<FeatureProps> = ({ slice }) => {
         </div>
         <div className="flex flex-col justify-center items-center gap-10 col-start-8 col-end-13">
           <div className="flex flex-col gap-3 text-white">
-            <div className="font-baloo text-[2rem] font-semibold leading-tight">
-              <PrismicRichText field={slice.primary.title} />
-            </div>
-            <div className="font-nunito text-[1.25rem] leading-snug">
-              <PrismicRichText field={slice.primary.description} />
-            </div>
+            <AnimateOnView>
+              <div className="font-baloo text-[2rem] font-semibold leading-tight">
+                <PrismicRichText field={slice.primary.title} />
+              </div>
+            </AnimateOnView>
+            <AnimateOnView delay={0.15}>
+              <div className="font-nunito text-[1.25rem] leading-snug">
+                <PrismicRichText field={slice.primary.description} />
+              </div>
+            </AnimateOnView>
           </div>
-          <div className="flex gap-5 items-center w-full">
+          <AnimateOnView delay={0.3} className="flex gap-5 items-center w-full">
             <CTAButton href="#" variant="white" className="max-w-1/2">
               Conheça a Lex
             </CTAButton>
-            {/* <CTAButton href="#" variant="white" className="max-w-1/2">
-              Trabalhe com a Lex
-            </CTAButton> */}
-          </div>
+          </AnimateOnView>
         </div>
       </GridContainer>
     </section>

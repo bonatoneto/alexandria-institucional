@@ -2,6 +2,7 @@
 
 import { FC, useState } from "react";
 
+import AnimateOnView from "@/components/animate-on-view";
 import GridContainer from "@/components/container";
 import Divider from "@/components/divider";
 
@@ -22,13 +23,19 @@ const ZoomImages: FC<ZoomImagesProps> = ({ slice }) => {
       {/* Desktop */}
       <GridContainer className="hidden md:grid">
         <div className="flex flex-col gap-5 col-start-1 col-end-5">
-          <div className="font-baloo text-[2rem] text-dark font-semibold md:pt-9">
-            <PrismicRichText field={slice.primary.title} />
-          </div>
-          <Divider />
-          <div className="font-nunito text-dark text-lg tracking-[0.54px]">
-            <PrismicRichText field={slice.primary.text} />
-          </div>
+          <AnimateOnView>
+            <div className="font-baloo text-[2rem] text-dark font-semibold md:pt-9">
+              <PrismicRichText field={slice.primary.title} />
+            </div>
+          </AnimateOnView>
+          <AnimateOnView delay={0.1}>
+            <Divider />
+          </AnimateOnView>
+          <AnimateOnView delay={0.2}>
+            <div className="font-nunito text-dark text-lg tracking-[0.54px]">
+              <PrismicRichText field={slice.primary.text} />
+            </div>
+          </AnimateOnView>
         </div>
         <ul className="col-start-6 col-end-13 flex items-center justify-end gap-4">
           {slice.primary.images.map((item, index) => (
@@ -64,13 +71,19 @@ const ZoomImages: FC<ZoomImagesProps> = ({ slice }) => {
       {/* Mobile */}
       <GridContainer className="flex flex-col md:hidden">
         <div className="flex flex-col items-center gap-8">
-          <div className="font-baloo text-[1.75rem] text-dark leading-[100%] font-semibold md:pt-9 text-center">
-            <PrismicRichText field={slice.primary.title} />
-          </div>
-          <Divider />
-          <div className="font-nunito text-dark text-lg tracking-[0.54px] text-center">
-            <PrismicRichText field={slice.primary.text} />
-          </div>
+          <AnimateOnView>
+            <div className="font-baloo text-[1.75rem] text-dark leading-[100%] font-semibold md:pt-9 text-center">
+              <PrismicRichText field={slice.primary.title} />
+            </div>
+          </AnimateOnView>
+          <AnimateOnView delay={0.1}>
+            <Divider />
+          </AnimateOnView>
+          <AnimateOnView delay={0.2}>
+            <div className="font-nunito text-dark text-lg tracking-[0.54px] text-center">
+              <PrismicRichText field={slice.primary.text} />
+            </div>
+          </AnimateOnView>
         </div>
         <ul className="flex flex-col items-center gap-4 mt-4">
           {slice.primary.images.map((item, index) => (
