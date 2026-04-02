@@ -28,7 +28,7 @@ const ZoomImages: FC<ZoomImagesProps> = ({ slice }) => {
               <PrismicRichText field={slice.primary.title} />
             </div>
           </AnimateOnView>
-          <AnimateOnView delay={0.1}>
+          <AnimateOnView delay={0.1} className="w-full flex justify-center">
             <Divider />
           </AnimateOnView>
           <AnimateOnView delay={0.2}>
@@ -76,7 +76,7 @@ const ZoomImages: FC<ZoomImagesProps> = ({ slice }) => {
               <PrismicRichText field={slice.primary.title} />
             </div>
           </AnimateOnView>
-          <AnimateOnView delay={0.1}>
+          <AnimateOnView delay={0.1} className="w-full flex justify-center">
             <Divider />
           </AnimateOnView>
           <AnimateOnView delay={0.2}>

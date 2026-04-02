@@ -32,7 +32,10 @@ const CtaSection: FC<CtaSectionProps> = ({ slice }) => {
             </div>
           </AnimateOnView>
         </div>
-        <AnimateOnView delay={0.3} className="flex flex-col justify-center gap-5 col-start-9 col-end-13">
+        <AnimateOnView
+          delay={0.3}
+          className="flex flex-col justify-center gap-5 col-start-9 col-end-13"
+        >
           <CTAButton variant="purple" href="#">
             Conheça a Lex
           </CTAButton>
@@ -46,7 +49,7 @@ const CtaSection: FC<CtaSectionProps> = ({ slice }) => {
               <PrismicRichText field={slice.primary.title} />
             </div>
           </AnimateOnView>
-          <AnimateOnView delay={0.1}>
+          <AnimateOnView delay={0.1} className="w-full flex justify-center">
             <Divider />
           </AnimateOnView>
           <AnimateOnView delay={0.2}>

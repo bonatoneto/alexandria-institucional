@@ -32,7 +32,7 @@ const CarouselSection: FC<CarouselSectionProps> = ({ slice }) => {
               <PrismicRichText field={slice.primary.title} />
             </div>
           </AnimateOnView>
-          <AnimateOnView delay={0.1}>
+          <AnimateOnView delay={0.1} className="flex w-full justify-center">
             <Divider variant="solid" />
           </AnimateOnView>
           <AnimateOnView delay={0.2}>
@@ -61,7 +61,7 @@ const CarouselSection: FC<CarouselSectionProps> = ({ slice }) => {
               </div>
             </AnimateOnView>
             <AnimateOnView delay={0.1}>
-              <Divider variant="solid" />
+              <Divider variant="solid" className="w-full flex justify-center" />
             </AnimateOnView>
             <AnimateOnView delay={0.2}>
               <div className="font-nunito text-lg">

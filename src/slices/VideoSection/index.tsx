@@ -35,7 +35,7 @@ const VideoSection: FC<VideoSectionProps> = ({ slice }) => {
             <PrismicRichText field={slice.primary.title} />
           </div>
         </AnimateOnView>
-        <AnimateOnView delay={0.15}>
+        <AnimateOnView delay={0.15} className="w-full flex justify-center">
           <Divider />
         </AnimateOnView>
         <AnimateOnView delay={0.3}>
