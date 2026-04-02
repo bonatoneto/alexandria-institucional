@@ -14,6 +14,7 @@ export type CarouselSectionProps =
 const CarouselSection: FC<CarouselSectionProps> = ({ slice }) => {
   return (
     <section
+      id="sobre"
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
     >

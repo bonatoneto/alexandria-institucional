@@ -7,8 +7,6 @@ import { PrismicNextImage } from "@prismicio/next";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
 
-gsap.registerPlugin(ScrollTrigger);
-
 type MockupOrbitProps = {
   primary: ImageField;
   secondary: ImageField;
@@ -20,9 +18,9 @@ export default function MockupOrbit({ primary, secondary }: MockupOrbitProps) {
   const phone2Ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const isMobile = window.matchMedia("(max-width: 767px)").matches;
+    gsap.registerPlugin(ScrollTrigger);
 
-    ScrollTrigger.refresh();
+    const isMobile = window.matchMedia("(max-width: 767px)").matches;
 
     const ctx = gsap.context(() => {
       gsap.set(phone1Ref.current, {

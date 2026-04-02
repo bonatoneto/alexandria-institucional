@@ -16,7 +16,7 @@ export default function CarouselMobile({ items }: CarouselMobileProps) {
       {items.map((item, index) => (
         <li
           key={index}
-          className="relative h-[320px] max-w-[65%] snap-center rounded-[28px] overflow-hidden shrink-0 first:ml-[16px] last:mr-[16px]"
+          className="relative h-[320px] w-[65%] snap-center rounded-[28px] overflow-hidden shrink-0 first:ml-[16px] last:mr-[16px]"
         >
           <PrismicNextImage
             field={item.image}

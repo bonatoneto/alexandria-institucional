@@ -14,6 +14,7 @@ const VideoSection: FC<VideoSectionProps> = ({ slice }) => {
 
   return (
     <section
+      id="tecnologia"
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
       className="relative min-h-dvh w-full overflow-hidden"

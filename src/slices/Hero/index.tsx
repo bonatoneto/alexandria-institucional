@@ -12,6 +12,7 @@ const Hero: FC<HeroProps> = ({ slice }) => {
 
   return (
     <section
+      id="inicio"
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
       className="relative min-h-dvh w-full overflow-hidden rounded-b-4xl"
