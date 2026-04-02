@@ -57,7 +57,7 @@ const CtaSection: FC<CtaSectionProps> = ({ slice }) => {
               <PrismicRichText field={slice.primary.text} />
             </div>
           </AnimateOnView>
-          <AnimateOnView delay={0.3}>
+          <AnimateOnView delay={0.3} className="w-full">
             <CTAButton variant="purple" href="#">
               Conheça a Lex
             </CTAButton>

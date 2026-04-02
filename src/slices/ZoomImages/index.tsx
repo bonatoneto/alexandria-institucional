@@ -28,10 +28,10 @@ const ZoomImages: FC<ZoomImagesProps> = ({ slice }) => {
               <PrismicRichText field={slice.primary.title} />
             </div>
           </AnimateOnView>
-          <AnimateOnView delay={0.1} className="w-full flex justify-center">
+          <AnimateOnView delay={0.15} className="w-full flex justify-start">
             <Divider />
           </AnimateOnView>
-          <AnimateOnView delay={0.2}>
+          <AnimateOnView delay={0.3}>
             <div className="font-nunito text-dark text-lg tracking-[0.54px]">
               <PrismicRichText field={slice.primary.text} />
             </div>
@@ -39,31 +39,33 @@ const ZoomImages: FC<ZoomImagesProps> = ({ slice }) => {
         </div>
         <ul className="col-start-6 col-end-13 flex items-center justify-end gap-4">
           {slice.primary.images.map((item, index) => (
-            <li
-              key={index}
-              className="relative overflow-hidden transition-all duration-300 ease-in-out"
-              style={{
-                width: activeCard === index ? "322px" : "242px",
-                height: activeCard === index ? "424px" : "318px",
-              }}
-              onMouseEnter={() => setActiveCard(index)}
-            >
-              <PrismicNextImage
-                field={item.image}
-                className="w-full h-full object-cover rounded-4xl"
-              />
-              <div className="absolute inset-0 bg-black opacity-20 rounded-4xl"></div>
-              <div className="absolute inset-0 w-full flex flex-col justify-end gap-1 px-6 py-12 text-white">
-                <div className="font-baloo text-2xl font-bold">
-                  <PrismicRichText field={item.image_title} />
-                </div>
-                {activeCard === index && (
-                  <div className="font-nunito text-base tracking-[0.48px]">
-                    <PrismicRichText field={item.image_description} />
+            <AnimateOnView key={index} delay={1.15 + index * 0.1}>
+              <li
+                key={index}
+                className="relative overflow-hidden transition-all duration-300 ease-in-out"
+                style={{
+                  width: activeCard === index ? "322px" : "242px",
+                  height: activeCard === index ? "424px" : "318px",
+                }}
+                onMouseEnter={() => setActiveCard(index)}
+              >
+                <PrismicNextImage
+                  field={item.image}
+                  className="w-full h-full object-cover rounded-4xl"
+                />
+                <div className="absolute inset-0 bg-black opacity-20 rounded-4xl"></div>
+                <div className="absolute inset-0 w-full flex flex-col justify-end gap-1 px-6 py-12 text-white">
+                  <div className="font-baloo text-2xl font-bold">
+                    <PrismicRichText field={item.image_title} />
                   </div>
-                )}
-              </div>
-            </li>
+                  {activeCard === index && (
+                    <div className="font-nunito text-base tracking-[0.48px]">
+                      <PrismicRichText field={item.image_description} />
+                    </div>
+                  )}
+                </div>
+              </li>
+            </AnimateOnView>
           ))}
         </ul>
       </GridContainer>
@@ -87,24 +89,26 @@ const ZoomImages: FC<ZoomImagesProps> = ({ slice }) => {
         </div>
         <ul className="flex flex-col items-center gap-4 mt-4">
           {slice.primary.images.map((item, index) => (
-            <li
-              key={index}
-              className="relative overflow-hidden  h-[284px] w-full transition-all duration-300 ease-in-out"
-            >
-              <PrismicNextImage
-                field={item.image}
-                className="w-full h-full object-cover rounded-4xl"
-              />
-              <div className="absolute inset-0 bg-black opacity-20 rounded-4xl"></div>
-              <div className="absolute inset-0 w-full flex flex-col justify-end gap-1 px-6 py-12 text-white">
-                <div className="font-baloo text-2xl font-bold">
-                  <PrismicRichText field={item.image_title} />
+            <AnimateOnView key={index} delay={0.3 + index * 0.1}>
+              <li
+                key={index}
+                className="relative overflow-hidden  h-[284px] w-full transition-all duration-300 ease-in-out"
+              >
+                <PrismicNextImage
+                  field={item.image}
+                  className="w-full h-full object-cover rounded-4xl"
+                />
+                <div className="absolute inset-0 bg-black opacity-20 rounded-4xl"></div>
+                <div className="absolute inset-0 w-full flex flex-col justify-end gap-1 px-6 py-12 text-white">
+                  <div className="font-baloo text-2xl font-bold">
+                    <PrismicRichText field={item.image_title} />
+                  </div>
+                  <div className="font-nunito text-base tracking-[0.48px]">
+                    <PrismicRichText field={item.image_description} />
+                  </div>
                 </div>
-                <div className="font-nunito text-base tracking-[0.48px]">
-                  <PrismicRichText field={item.image_description} />
-                </div>
-              </div>
-            </li>
+              </li>
+            </AnimateOnView>
           ))}
         </ul>
       </GridContainer>

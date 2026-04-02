@@ -25,7 +25,7 @@ const MockupSection: FC<MockupSectionProps> = ({ slice }) => {
               <PrismicRichText field={slice.primary.title} />
             </div>
           </AnimateOnView>
-          <AnimateOnView delay={0.1} className="w-full flex justify-center">
+          <AnimateOnView delay={0.1} className="w-full flex justify-start">
             <Divider />
           </AnimateOnView>
           <AnimateOnView delay={0.2}>
