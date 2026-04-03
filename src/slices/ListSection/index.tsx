@@ -22,7 +22,10 @@ const MockupSection: FC<MockupSectionProps> = ({ slice }) => {
       <GridContainer className="hidden md:grid">
         <div className="col-start-1 col-end-6 h-full flex items-center relative -top-5">
           <AnimateOnView>
-            <PrismicNextImage field={slice.primary.image} />
+            <PrismicNextImage
+              field={slice.primary.image}
+              sizes="(max-width: 768px) 100vw, 40vw"
+            />
           </AnimateOnView>
         </div>
         <div className="col-start-7 col-end-13 flex flex-col gap-6 justify-center text-dark">
@@ -87,6 +90,7 @@ const MockupSection: FC<MockupSectionProps> = ({ slice }) => {
           <PrismicNextImage
             field={slice.primary.image}
             className="w-full rounded-xl object-cover"
+            sizes="100vw"
           />
         </AnimateOnView>
       </GridContainer>

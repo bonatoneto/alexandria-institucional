@@ -26,12 +26,34 @@
 				]
 			},
 			"background_video": {
-				"__TYPE__": "LinkContent",
 				"key": "1d46a0d6-e370-40f1-95eb-a384bea41258",
+				"__TYPE__": "LinkContent",
 				"value": {
 					"__TYPE__": "ExternalLink",
 					"url": "http://google.com"
 				}
+			},
+			"poster": {
+				"__TYPE__": "ImageContent",
+				"origin": {
+					"id": "main",
+					"url": "https://images.unsplash.com/photo-1544731612-de7f96afe55f",
+					"width": 6000,
+					"height": 4000
+				},
+				"url": "https://images.unsplash.com/photo-1544731612-de7f96afe55f",
+				"width": 6000,
+				"height": 4000,
+				"edit": {
+					"zoom": 1,
+					"crop": {
+						"x": 0,
+						"y": 0
+					},
+					"background": "transparent"
+				},
+				"alt": "total",
+				"thumbnails": {}
 			}
 		},
 		"items": []

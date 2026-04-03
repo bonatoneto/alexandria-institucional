@@ -40,6 +40,14 @@
             "allowText": false,
             "repeat": false
           }
+        },
+        "poster": {
+          "type": "Image",
+          "config": {
+            "label": "Poster",
+            "constraint": {},
+            "thumbnails": []
+          }
         }
       },
       "items": {}

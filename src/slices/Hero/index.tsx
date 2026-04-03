@@ -11,6 +11,8 @@ export type HeroProps = SliceComponentProps<Content.HeroSlice>;
 const Hero: FC<HeroProps> = ({ slice }) => {
   const videoUrl = asLink(slice.primary.background_video);
 
+  console.log(slice.primary.poster.url);
+
   return (
     <section
       id="inicio"
@@ -20,10 +22,12 @@ const Hero: FC<HeroProps> = ({ slice }) => {
     >
       <video
         src={videoUrl ?? undefined}
+        poster={slice.primary.poster.url ?? undefined}
         autoPlay
         loop
         muted
         playsInline
+        preload="none"
         className="absolute inset-0 h-full w-full object-cover"
       />
       <div className="absolute inset-0 h-full w-full bg-black opacity-20" />

@@ -2,11 +2,11 @@ import { FC } from "react";
 
 import AnimateOnView from "@/components/animate-on-view";
 import GridContainer from "@/components/container";
+import CTAButton from "@/components/cta-button";
 import Divider from "@/components/divider";
 
 import { Content } from "@prismicio/client";
 import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
-import CTAButton from "@/components/cta-button";
 
 export type MapSectionProps = SliceComponentProps<Content.MapSectionSlice>;
 
@@ -44,6 +44,7 @@ const MapSection: FC<MapSectionProps> = ({ slice }) => {
       <div className="-mt-10 relative">
         <iframe
           src={`https://www.google.com/maps?q=${slice.primary.latitude},${slice.primary.longitude}&z=15&output=embed`}
+          title="Localização da Alexandria no Google Maps"
           width="100%"
           height="382px"
           loading="lazy"

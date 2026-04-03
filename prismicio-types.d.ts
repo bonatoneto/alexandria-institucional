@@ -798,6 +798,16 @@ export interface HeroSliceDefaultPrimary {
     prismic.FieldState,
     never
   >;
+
+  /**
+   * Poster field in *Hero → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.default.primary.poster
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  poster: prismic.ImageField<never>;
 }
 
 /**

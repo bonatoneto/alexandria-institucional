@@ -52,6 +52,7 @@ const ZoomImages: FC<ZoomImagesProps> = ({ slice }) => {
                 <PrismicNextImage
                   field={item.image}
                   className="w-full h-full object-cover rounded-4xl"
+                  sizes="322px"
                 />
                 <div className="absolute inset-0 bg-black opacity-20 rounded-4xl"></div>
                 <div className="absolute inset-0 w-full flex flex-col justify-end gap-1 px-6 py-12 text-white">
@@ -91,27 +92,24 @@ const ZoomImages: FC<ZoomImagesProps> = ({ slice }) => {
           {slice.primary.images.map((item, index) => (
             <AnimateOnView
               key={index}
+              as="li"
               delay={0.3 + index * 0.1}
-              className="w-full"
+              className="relative overflow-hidden h-[284px] w-full transition-all duration-300 ease-in-out"
             >
-              <li
-                key={index}
-                className="relative overflow-hidden h-[284px] w-full transition-all duration-300 ease-in-out"
-              >
-                <PrismicNextImage
-                  field={item.image}
-                  className="w-full h-full object-cover rounded-4xl"
-                />
-                <div className="absolute inset-0 bg-black opacity-20 rounded-4xl" />
-                <div className="absolute inset-0 w-full flex flex-col justify-end gap-1 px-6 py-12 text-white">
-                  <div className="font-baloo text-2xl font-bold">
-                    <PrismicRichText field={item.image_title} />
-                  </div>
-                  <div className="font-nunito text-base tracking-[0.48px]">
-                    <PrismicRichText field={item.image_description} />
-                  </div>
+              <PrismicNextImage
+                field={item.image}
+                className="w-full h-full object-cover rounded-4xl"
+                sizes="100vw"
+              />
+              <div className="absolute inset-0 bg-black opacity-20 rounded-4xl" />
+              <div className="absolute inset-0 w-full flex flex-col justify-end gap-1 px-6 py-12 text-white">
+                <div className="font-baloo text-2xl font-bold">
+                  <PrismicRichText field={item.image_title} />
                 </div>
-              </li>
+                <div className="font-nunito text-base tracking-[0.48px]">
+                  <PrismicRichText field={item.image_description} />
+                </div>
+              </div>
             </AnimateOnView>
           ))}
         </ul>

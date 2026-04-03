@@ -15,9 +15,10 @@ export default function Header({ data }: HeaderProps) {
   return (
     <header className="fixed z-30 py-6 md:py-0 top-0 w-full bg-white">
       <GridContainer className="items-center">
-        <Link href="/">
+        <Link href="/" aria-label="Alexandria — página inicial">
           <PrismicNextImage
             field={data.logo}
+            fallbackAlt=""
             className="h-full max-w-[110px] md:min-w-[170px] object-contain object-left"
           />
         </Link>

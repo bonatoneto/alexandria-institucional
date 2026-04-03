@@ -6,15 +6,19 @@ type AnimateOnViewProps = {
   children: React.ReactNode;
   className?: string;
   delay?: number;
+  as?: keyof typeof motion;
 };
 
 export default function AnimateOnView({
   children,
   className,
   delay = 0,
+  as = "div",
 }: AnimateOnViewProps) {
+  const MotionTag = motion[as] as typeof motion.div;
+
   return (
-    <motion.div
+    <MotionTag
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
@@ -22,6 +26,6 @@ export default function AnimateOnView({
       className={className}
     >
       {children}
-    </motion.div>
+    </MotionTag>
   );
 }

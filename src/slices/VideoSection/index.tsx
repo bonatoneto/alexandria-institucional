@@ -4,15 +4,13 @@ import AnimateOnView from "@/components/animate-on-view";
 import Divider from "@/components/divider";
 
 import { asLink, Content } from "@prismicio/client";
-import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
 import { asText } from "@prismicio/client/richtext";
+import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
 
 export type VideoSectionProps = SliceComponentProps<Content.VideoSectionSlice>;
 
 const VideoSection: FC<VideoSectionProps> = ({ slice }) => {
   const videoUrl = asLink(slice.primary.video);
-
-  console.log(videoUrl);
 
   return (
     <section
@@ -28,6 +26,7 @@ const VideoSection: FC<VideoSectionProps> = ({ slice }) => {
         loop
         muted
         playsInline
+        preload="none"
       />
       <div className="absolute inset-0 h-full w-full bg-black opacity-20" />
       <div className="relative z-10 min-h-dvh flex flex-col gap-5 md:gap-8 items-center justify-center text-white">

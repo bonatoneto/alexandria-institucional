@@ -5,6 +5,7 @@ import GridContainer from "@/components/container";
 import CTAButton from "@/components/cta-button";
 
 import { Content } from "@prismicio/client";
+import { PrismicNextImage } from "@prismicio/next";
 import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
 
 const textComponents = {
@@ -21,12 +22,18 @@ const BigTextSection: FC<BigTextSectionProps> = ({ slice }) => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      style={{
-        backgroundImage: `url(${slice.primary.background_image.url})`,
-      }}
-      className="bg-cover bg-center py-12 md:py-24 flex items-center justify-center -mt-16"
+      className="relative py-12 md:py-24 flex items-center justify-center -mt-16"
     >
-      <GridContainer>
+      <PrismicNextImage
+        field={slice.primary.background_image}
+        fill
+        fetchPriority="high"
+        loading="eager"
+        className="object-cover object-center"
+        sizes="100vw"
+        fallbackAlt=""
+      />
+      <GridContainer className="relative z-10">
         <div className="flex flex-col col-start-1 col-end-13 items-center gap-8 md:gap-6 pt-16 md:pb-0">
           <div className="flex flex-col gap-5 items-center md:gap-2">
             <AnimateOnView>
