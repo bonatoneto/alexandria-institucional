@@ -1,8 +1,8 @@
 {
-  "id": "mockup_section",
+  "id": "feature",
   "type": "SharedSlice",
   "name": "MockupSection",
-  "description": "MockupSection",
+  "description": "Feature",
   "variations": [
     {
       "id": "default",
@@ -15,34 +15,34 @@
         "title": {
           "type": "StructuredText",
           "config": {
-            "label": "Titulo da seçao",
-            "placeholder": "Ex: Por que a Alexandria?",
+            "label": "Ttulo",
+            "placeholder": "Titulo da secao ",
             "allowTargetBlank": true,
-            "multi": "heading2,heading3,heading4"
+            "multi": "heading2,heading3"
           }
         },
-        "subtitle": {
+        "description": {
           "type": "StructuredText",
           "config": {
-            "label": "Subtitulo da seçao",
-            "placeholder": "Ex: Infraestrutura própria",
-            "allowTargetBlank": true,
-            "multi": "heading3,heading4,heading5,heading6"
-          }
-        },
-        "text": {
-          "type": "StructuredText",
-          "config": {
-            "label": "Texto descritivo da seçao",
+            "label": "Descrição",
             "placeholder": "",
             "allowTargetBlank": true,
-            "multi": "paragraph,hyperlink,list-item,o-list-item,strong,em"
+            "multi": "o-list-item,list-item,paragraph,heading6,heading5,heading4,strong"
+          }
+        },
+        "background_animation": {
+          "type": "Link",
+          "config": {
+            "label": "Animaçao de fundo da seçao",
+            "placeholder": "URL da midia de background",
+            "select": "media",
+            "allowText": true
           }
         },
         "mockup_image_primary": {
           "type": "Image",
           "config": {
-            "label": "Imagem do mockup primária",
+            "label": "Imagem Mockup Primaria",
             "constraint": {},
             "thumbnails": []
           }
@@ -50,7 +50,7 @@
         "mockup_image_secondary": {
           "type": "Image",
           "config": {
-            "label": "Imagem do mockup secondária",
+            "label": "Imagem Mockup Secundaria",
             "constraint": {},
             "thumbnails": []
           }

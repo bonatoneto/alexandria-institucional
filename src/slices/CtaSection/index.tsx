@@ -6,6 +6,7 @@ import CTAButton from "@/components/cta-button";
 import Divider from "@/components/divider";
 
 import { Content } from "@prismicio/client";
+import { PrismicNextImage } from "@prismicio/next";
 import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
 
 export type CtaSectionProps = SliceComponentProps<Content.CtaSectionSlice>;
@@ -20,33 +21,45 @@ const CtaSection: FC<CtaSectionProps> = ({ slice }) => {
     >
       {/* Desktop */}
       <GridContainer className="hidden md:grid">
-        <div className="flex flex-col gap-5 col-start-1 col-end-6">
-          <AnimateOnView>
-            <div className="font-baloo text-5xl font-semibold leading-[100%] text-dark">
-              <PrismicRichText field={slice.primary.title} />
-            </div>
-          </AnimateOnView>
-          <AnimateOnView delay={0.15}>
-            <div className="font-nunito font-lg text-dark">
-              <PrismicRichText field={slice.primary.text} />
-            </div>
+        <div className="flex flex-col gap-12 col-start-3 col-end-10 items-center text-center">
+          <div className="flex flex-col items-center gap-5">
+            <AnimateOnView>
+              <div className="flex items-center justify-center gap-3 w-full">
+                <div className="font-baloo text-5xl font-semibold leading-[100%] text-dark text-nowrap ">
+                  <PrismicRichText field={slice.primary.title} />
+                </div>
+                <PrismicNextImage
+                  field={slice.primary.image}
+                  className="inline-block w-auto h-full min-h-10"
+                />
+              </div>
+            </AnimateOnView>
+            <AnimateOnView delay={0.15}>
+              <div className="font-nunito font-lg text-dark">
+                <PrismicRichText field={slice.primary.text} />
+              </div>
+            </AnimateOnView>
+          </div>
+          <AnimateOnView
+            delay={0.3}
+            className="flex w-full justify-center max-w-[331px]"
+          >
+            <CTAButton variant="gradient" href="#">
+              Saiba mais
+            </CTAButton>
           </AnimateOnView>
         </div>
-        <AnimateOnView
-          delay={0.3}
-          className="flex flex-col justify-center gap-5 col-start-9 col-end-13"
-        >
-          <CTAButton variant="purple" href="#">
-            Conheça a Lex
-          </CTAButton>
-        </AnimateOnView>
       </GridContainer>
       {/* Mobile */}
-      <GridContainer className="flex md:hidden">
-        <div className="flex flex-col items-center gap-8">
+      <GridContainer className="flex md:hidden pt-60">
+        <div className="flex flex-col items-center gap-8 text-center">
           <AnimateOnView>
-            <div className="font-baloo text-4xl font-semibold leading-[100%] text-dark">
+            <div className="flex flex-col gap-2 items-center font-baloo text-4xl font-semibold leading-[100%] text-dark">
               <PrismicRichText field={slice.primary.title} />
+              <PrismicNextImage
+                field={slice.primary.image}
+                className="max-h-9"
+              />
             </div>
           </AnimateOnView>
           <AnimateOnView delay={0.1} className="w-full flex justify-center">

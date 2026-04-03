@@ -32,7 +32,18 @@
 					{
 						"type": "paragraph",
 						"content": {
-							"text": "Mollit occaecat eiusmod reprehenderit. Mollit pariatur eiusmod fugiat irure aute reprehenderit esse mollit culpa aute esse nostrud aliquip. Dolore veniam aliqua ut id incididunt."
+							"text": "Fugiat laborum pariatur elit voluptate dolore."
+						}
+					}
+				]
+			},
+			"title": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading2",
+						"content": {
+							"text": "Combine"
 						}
 					}
 				]

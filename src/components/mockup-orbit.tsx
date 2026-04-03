@@ -94,13 +94,13 @@ export default function MockupOrbit({ primary, secondary }: MockupOrbitProps) {
     >
       <div
         ref={phone1Ref}
-        className="relative z-20 w-[45%] -mr-[5%] md:absolute md:mr-0 md:w-[max(280px,42%)] md:left-[10%] xl:left-[20%] md:-top-40"
+        className="relative z-20 w-[45%] -mr-[5%] md:absolute md:mr-0 md:w-[max(280px,42%)] md:left-[10%] xl:left-[20%] md:-top-36"
       >
         <PrismicNextImage field={primary} className="w-full h-auto" />
       </div>
       <div
         ref={phone2Ref}
-        className="relative z-10 w-[45%] -ml-[5%] mt-16 md:mt-0 md:absolute md:ml-0 md:w-[max(280px,42%)] md:right-0 xl:md:-top-32"
+        className="relative z-10 w-[45%] -ml-[5%] mt-16 md:mt-0 md:absolute md:ml-0 md:w-[max(280px,42%)] md:right-0 sm:-top-8 xl:md:-top-24"
       >
         <PrismicNextImage field={secondary} className="w-full h-auto " />
       </div>

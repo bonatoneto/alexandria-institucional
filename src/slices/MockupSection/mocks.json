@@ -3,35 +3,37 @@
 		"__TYPE__": "SharedSliceContent",
 		"variation": "default",
 		"primary": {
+			"description": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Eu cupidatat anim dolore magna aliqua id sunt tempor cupidatat cillum. Dolore fugiat duis excepteur."
+						}
+					}
+				]
+			},
+			"background_animation": {
+				"key": "5c476e2a-9f5d-49c8-a39e-2dc1c719615c",
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "FileLink",
+					"id": "mock_Media_link",
+					"kind": "file",
+					"name": "mock_name",
+					"url": "https://source.unsplash.com/daily",
+					"size": "0",
+					"text": "step"
+				}
+			},
 			"title": {
 				"__TYPE__": "StructuredTextContent",
 				"value": [
 					{
 						"type": "heading2",
 						"content": {
-							"text": "Picture"
-						}
-					}
-				]
-			},
-			"subtitle": {
-				"__TYPE__": "StructuredTextContent",
-				"value": [
-					{
-						"type": "heading3",
-						"content": {
-							"text": "Action"
-						}
-					}
-				]
-			},
-			"text": {
-				"__TYPE__": "StructuredTextContent",
-				"value": [
-					{
-						"type": "paragraph",
-						"content": {
-							"text": "Commodo enim eu enim id culpa aute ad consectetur pariatur sit do."
+							"text": "Thick"
 						}
 					}
 				]
@@ -39,13 +41,13 @@
 			"mockup_image_primary": {
 				"origin": {
 					"id": "main",
-					"url": "https://images.unsplash.com/photo-1596195689404-24d8a8d1c6ea",
-					"width": 5000,
-					"height": 4613
+					"url": "https://images.unsplash.com/photo-1471897488648-5eae4ac6686b",
+					"width": 3560,
+					"height": 5340
 				},
-				"url": "https://images.unsplash.com/photo-1596195689404-24d8a8d1c6ea",
-				"width": 5000,
-				"height": 4613,
+				"url": "https://images.unsplash.com/photo-1471897488648-5eae4ac6686b",
+				"width": 3560,
+				"height": 5340,
 				"edit": {
 					"zoom": 1,
 					"crop": {
@@ -54,22 +56,21 @@
 					},
 					"background": "transparent"
 				},
-				"alt": "screen",
+				"alt": "pig",
 				"credits": null,
 				"__TYPE__": "ImageContent",
 				"thumbnails": {}
 			},
 			"mockup_image_secondary": {
-				"__TYPE__": "ImageContent",
 				"origin": {
 					"id": "main",
-					"url": "https://images.unsplash.com/photo-1494173853739-c21f58b16055",
-					"width": 3277,
-					"height": 4092
+					"url": "https://images.unsplash.com/photo-1593642633279-1796119d5482",
+					"width": 4016,
+					"height": 6016
 				},
-				"url": "https://images.unsplash.com/photo-1494173853739-c21f58b16055",
-				"width": 3277,
-				"height": 4092,
+				"url": "https://images.unsplash.com/photo-1593642633279-1796119d5482",
+				"width": 4016,
+				"height": 6016,
 				"edit": {
 					"zoom": 1,
 					"crop": {
@@ -78,7 +79,9 @@
 					},
 					"background": "transparent"
 				},
-				"alt": "breakfast",
+				"alt": "president",
+				"credits": null,
+				"__TYPE__": "ImageContent",
 				"thumbnails": {}
 			}
 		},

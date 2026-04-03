@@ -6,10 +6,10 @@ export const components = {
   big_text_section: dynamic(() => import("./BigTextSection")),
   carousel_section: dynamic(() => import("./CarouselSection")),
   cta_section: dynamic(() => import("./CtaSection")),
-  feature: dynamic(() => import("./Feature")),
+  feature: dynamic(() => import("./MockupSection")),
   hero: dynamic(() => import("./Hero")),
   map_section: dynamic(() => import("./MapSection")),
-  mockup_section: dynamic(() => import("./MockupSection")),
+  mockup_section: dynamic(() => import("./ListSection")),
   video_section: dynamic(() => import("./VideoSection")),
   zoom_images: dynamic(() => import("./ZoomImages")),
 };

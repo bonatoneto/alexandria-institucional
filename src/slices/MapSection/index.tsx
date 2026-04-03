@@ -6,6 +6,7 @@ import Divider from "@/components/divider";
 
 import { Content } from "@prismicio/client";
 import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
+import CTAButton from "@/components/cta-button";
 
 export type MapSectionProps = SliceComponentProps<Content.MapSectionSlice>;
 
@@ -29,6 +30,14 @@ const MapSection: FC<MapSectionProps> = ({ slice }) => {
             <div className="font-nunito text-lg">
               <PrismicRichText field={slice.primary.text} />
             </div>
+          </AnimateOnView>
+          <AnimateOnView
+            delay={0.3}
+            className="w-full md:max-w-[331px] flex justify-center"
+          >
+            <CTAButton href="#" variant="gradient">
+              Trabalhar com a Lex
+            </CTAButton>
           </AnimateOnView>
         </div>
       </GridContainer>

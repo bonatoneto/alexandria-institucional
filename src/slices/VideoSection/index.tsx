@@ -5,6 +5,7 @@ import Divider from "@/components/divider";
 
 import { asLink, Content } from "@prismicio/client";
 import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
+import { asText } from "@prismicio/client/richtext";
 
 export type VideoSectionProps = SliceComponentProps<Content.VideoSectionSlice>;
 
@@ -35,9 +36,11 @@ const VideoSection: FC<VideoSectionProps> = ({ slice }) => {
             <PrismicRichText field={slice.primary.title} />
           </div>
         </AnimateOnView>
-        <AnimateOnView delay={0.15} className="w-full flex justify-center">
-          <Divider />
-        </AnimateOnView>
+        {asText(slice.primary.description) != "" && (
+          <AnimateOnView delay={0.15} className="w-full flex justify-center">
+            <Divider />
+          </AnimateOnView>
+        )}
         <AnimateOnView delay={0.3}>
           <div className="font-nunito text-lg md:text-2xl md:font-semibold text-center">
             <PrismicRichText field={slice.primary.description} />

@@ -427,10 +427,20 @@ export interface BigTextSectionSliceDefaultPrimary {
   background_image: prismic.ImageField<never>;
 
   /**
+   * Title field in *BigTextSection → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Insira o titulo da seçao
+   * - **API ID Path**: big_text_section.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  title: prismic.RichTextField;
+
+  /**
    * Text field in *BigTextSection → Default → Primary*
    *
    * - **Field Type**: Rich Text
-   * - **Placeholder**: Ex: Simplificamos o que antes era complicado.
+   * - **Placeholder**: Texto descritivo da seçao
    * - **API ID Path**: big_text_section.default.primary.text
    * - **Documentation**: https://prismic.io/docs/fields/rich-text
    */
@@ -614,6 +624,16 @@ export interface CtaSectionSliceDefaultPrimary {
   text: prismic.RichTextField;
 
   /**
+   * Imagem field in *CtaSection → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cta_section.default.primary.image
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
    * Imagem de background field in *CtaSection → Default → Primary*
    *
    * - **Field Type**: Image
@@ -655,21 +675,11 @@ export type CtaSectionSlice = prismic.SharedSlice<
 >;
 
 /**
- * Primary content in *Feature → Default → Primary*
+ * Primary content in *MockupSection → Default → Primary*
  */
 export interface FeatureSliceDefaultPrimary {
   /**
-   * Imagem field in *Feature → Default → Primary*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: feature.default.primary.image
-   * - **Documentation**: https://prismic.io/docs/fields/image
-   */
-  image: prismic.ImageField<never>;
-
-  /**
-   * Ttulo field in *Feature → Default → Primary*
+   * Ttulo field in *MockupSection → Default → Primary*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: Titulo da secao
@@ -679,7 +689,7 @@ export interface FeatureSliceDefaultPrimary {
   title: prismic.RichTextField;
 
   /**
-   * Descrição field in *Feature → Default → Primary*
+   * Descrição field in *MockupSection → Default → Primary*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
@@ -689,7 +699,7 @@ export interface FeatureSliceDefaultPrimary {
   description: prismic.RichTextField;
 
   /**
-   * Animaçao de fundo da seçao field in *Feature → Default → Primary*
+   * Animaçao de fundo da seçao field in *MockupSection → Default → Primary*
    *
    * - **Field Type**: Link to Media
    * - **Placeholder**: URL da midia de background
@@ -697,10 +707,30 @@ export interface FeatureSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/fields/link-to-media
    */
   background_animation: prismic.LinkToMediaField<prismic.FieldState, never>;
+
+  /**
+   * Imagem Mockup Primaria field in *MockupSection → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: feature.default.primary.mockup_image_primary
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  mockup_image_primary: prismic.ImageField<never>;
+
+  /**
+   * Imagem Mockup Secundaria field in *MockupSection → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: feature.default.primary.mockup_image_secondary
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  mockup_image_secondary: prismic.ImageField<never>;
 }
 
 /**
- * Default variation for Feature Slice
+ * Default variation for MockupSection Slice
  *
  * - **API ID**: `default`
  * - **Description**: Default
@@ -713,12 +743,12 @@ export type FeatureSliceDefault = prismic.SharedSliceVariation<
 >;
 
 /**
- * Slice variation for *Feature*
+ * Slice variation for *MockupSection*
  */
 type FeatureSliceVariation = FeatureSliceDefault;
 
 /**
- * Feature Shared Slice
+ * MockupSection Shared Slice
  *
  * - **API ID**: `feature`
  * - **Description**: Feature
@@ -873,11 +903,46 @@ export type MapSectionSlice = prismic.SharedSlice<
 >;
 
 /**
- * Primary content in *MockupSection → Default → Primary*
+ * Item in *ListSection → Default → Primary → Lista*
+ */
+export interface MockupSectionSliceDefaultPrimaryListItem {
+  /**
+   * Titulo do item field in *ListSection → Default → Primary → Lista*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Ex: Infraestrutura própria
+   * - **API ID Path**: mockup_section.default.primary.list[].item_title
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  item_title: prismic.RichTextField;
+
+  /**
+   * Descrição do item field in *ListSection → Default → Primary → Lista*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Texto descritivo
+   * - **API ID Path**: mockup_section.default.primary.list[].item_description
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  item_description: prismic.RichTextField;
+}
+
+/**
+ * Primary content in *ListSection → Default → Primary*
  */
 export interface MockupSectionSliceDefaultPrimary {
   /**
-   * Titulo da seçao field in *MockupSection → Default → Primary*
+   * Imagem da seção field in *ListSection → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: mockup_section.default.primary.image
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * Titulo da seçao field in *ListSection → Default → Primary*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: Ex: Por que a Alexandria?
@@ -887,48 +952,18 @@ export interface MockupSectionSliceDefaultPrimary {
   title: prismic.RichTextField;
 
   /**
-   * Subtitulo da seçao field in *MockupSection → Default → Primary*
+   * Lista field in *ListSection → Default → Primary*
    *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: Ex: Infraestrutura própria
-   * - **API ID Path**: mockup_section.default.primary.subtitle
-   * - **Documentation**: https://prismic.io/docs/fields/rich-text
-   */
-  subtitle: prismic.RichTextField;
-
-  /**
-   * Texto descritivo da seçao field in *MockupSection → Default → Primary*
-   *
-   * - **Field Type**: Rich Text
+   * - **Field Type**: Group
    * - **Placeholder**: *None*
-   * - **API ID Path**: mockup_section.default.primary.text
-   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   * - **API ID Path**: mockup_section.default.primary.list[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
    */
-  text: prismic.RichTextField;
-
-  /**
-   * Imagem do mockup primária field in *MockupSection → Default → Primary*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: mockup_section.default.primary.mockup_image_primary
-   * - **Documentation**: https://prismic.io/docs/fields/image
-   */
-  mockup_image_primary: prismic.ImageField<never>;
-
-  /**
-   * Imagem do mockup secondária field in *MockupSection → Default → Primary*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: mockup_section.default.primary.mockup_image_secondary
-   * - **Documentation**: https://prismic.io/docs/fields/image
-   */
-  mockup_image_secondary: prismic.ImageField<never>;
+  list: prismic.GroupField<Simplify<MockupSectionSliceDefaultPrimaryListItem>>;
 }
 
 /**
- * Default variation for MockupSection Slice
+ * Default variation for ListSection Slice
  *
  * - **API ID**: `default`
  * - **Description**: Default
@@ -941,12 +976,12 @@ export type MockupSectionSliceDefault = prismic.SharedSliceVariation<
 >;
 
 /**
- * Slice variation for *MockupSection*
+ * Slice variation for *ListSection*
  */
 type MockupSectionSliceVariation = MockupSectionSliceDefault;
 
 /**
- * MockupSection Shared Slice
+ * ListSection Shared Slice
  *
  * - **API ID**: `mockup_section`
  * - **Description**: MockupSection
@@ -1181,6 +1216,7 @@ declare module "@prismicio/client" {
       MapSectionSliceVariation,
       MapSectionSliceDefault,
       MockupSectionSlice,
+      MockupSectionSliceDefaultPrimaryListItem,
       MockupSectionSliceDefaultPrimary,
       MockupSectionSliceVariation,
       MockupSectionSliceDefault,

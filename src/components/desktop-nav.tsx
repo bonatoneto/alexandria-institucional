@@ -16,7 +16,7 @@ export default function DesktopNav({ items }: DesktopNavProps) {
 
   return (
     <nav className="hidden md:block col-start-9 col-auto col-end-13 w-full">
-      <ul className="flex gap-6 font-nunito font-sm text-nowrap justify-between">
+      <ul className="flex  justify-end gap-8 font-nunito font-sm text-nowrap">
         {items.map((item) => {
           const isActive = activeId === item.menu_item?.replace("#", "");
           return (
