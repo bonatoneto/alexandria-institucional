@@ -34,7 +34,7 @@ const BigTextSection: FC<BigTextSectionProps> = ({ slice }) => {
         fallbackAlt=""
       />
       <GridContainer className="relative z-10">
-        <div className="flex flex-col col-start-1 col-end-13 items-center gap-8 md:gap-6 pt-16 md:pb-0">
+        <div className="flex flex-col col-start-1 col-end-13 items-center gap-8 md:gap-6">
           <div className="flex flex-col gap-5 items-center md:gap-2">
             <AnimateOnView>
               <div className="text-[2rem] md:leading-[120%] md:text-5xl text-dark font-semibold text-center font-baloo leading-tight">
