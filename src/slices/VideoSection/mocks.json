@@ -4,8 +4,8 @@
 		"variation": "default",
 		"primary": {
 			"video": {
-				"__TYPE__": "LinkContent",
 				"key": "4fda7006-5232-42c9-b665-261d4c748793",
+				"__TYPE__": "LinkContent",
 				"value": {
 					"__TYPE__": "FileLink",
 					"id": "mock_Media_link",

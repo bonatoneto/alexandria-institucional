@@ -2,12 +2,12 @@
 
 import { useEffect, useState } from "react";
 
-const sectionIds = ["inicio", "o-que-nos-move", "tecnologia", "sobre"];
-
-export default function useActiveSection() {
+export default function useActiveSection(sectionIds: string[]) {
   const [activeId, setActiveId] = useState<string | null>(null);
 
   useEffect(() => {
+    if (!sectionIds || sectionIds.length === 0) return;
+
     const sections = sectionIds
       .map((id) => document.getElementById(id))
       .filter(Boolean) as HTMLElement[];

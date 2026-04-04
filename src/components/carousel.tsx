@@ -1,7 +1,6 @@
 "use client";
 
-import "swiper/css";
-import "swiper/css/autoplay";
+import "swiper/swiper-bundle.css";
 
 import { useEffect, useRef } from "react";
 

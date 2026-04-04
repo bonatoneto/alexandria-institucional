@@ -12,7 +12,10 @@ type DesktopNavProps = {
 };
 
 export default function DesktopNav({ items }: DesktopNavProps) {
-  const activeId = useActiveSection();
+  const sectionIds = items
+    .map((item) => item.menu_item?.replace("#", ""))
+    .filter((id): id is string => !!id);
+  const activeId = useActiveSection(sectionIds);
 
   return (
     <nav className="hidden md:block col-start-9 col-auto col-end-13 w-full">

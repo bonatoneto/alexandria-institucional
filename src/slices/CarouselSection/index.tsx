@@ -53,7 +53,7 @@ const CarouselSection: FC<CarouselSectionProps> = ({ slice }) => {
         }}
         className="hidden md:block relative overflow-x-clip overflow-y-visible bg-center bg-cover w-full bg-no-repeat max-h-90"
       >
-        <GridContainer className="items-center !pr-0">
+        <GridContainer className="items-center">
           <div className="flex flex-col gap-5 text-white col-start-1 col-end-6">
             <AnimateOnView>
               <div className="font-baloo text-5xl font-bold">
@@ -69,7 +69,7 @@ const CarouselSection: FC<CarouselSectionProps> = ({ slice }) => {
               </div>
             </AnimateOnView>
           </div>
-          <div className="col-start-7 col-end-13 overflow-visible -mt-8">
+          <div className="col-start-7 col-end-13 overflow-visible -mt-8 -mr-24">
             <Carousel items={slice.primary.carousel} />
           </div>
         </GridContainer>
